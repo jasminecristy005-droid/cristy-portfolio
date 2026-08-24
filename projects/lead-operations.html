@@ -1,0 +1,1382 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Lead Operations — Case Study | Cristy Develleres</title>
+
+    <meta
+        name="description"
+        content="Lead Operations — A lead research, data enrichment, CRM organization, and outreach workflow project by Cristy Develleres."
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           LEAD OPERATIONS CASE STUDY
+        ===================================================== */
+
+        .case-study {
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           CASE HEADER
+        ===================================================== */
+
+        .case-header {
+            max-width: 1440px;
+            margin: auto;
+            padding: 135px 5vw 90px;
+        }
+
+        .case-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+
+            color: #77736b;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .case-back:hover {
+            color: #171714;
+            transform: translateX(-4px);
+        }
+
+        .case-number {
+            margin-top: 85px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+
+            color: #77736b;
+        }
+
+        .case-header h1 {
+            max-width: 1200px;
+
+            margin-top: 25px;
+
+            font-size: clamp(65px, 9vw, 140px);
+            font-weight: 500;
+            line-height: 0.84;
+
+            letter-spacing: -0.075em;
+            text-transform: uppercase;
+        }
+
+        .case-header h1 em {
+            display: block;
+
+            margin-left: 10vw;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+            text-transform: none;
+        }
+
+        .case-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            margin-top: 80px;
+            padding-top: 30px;
+
+            border-top: 1px solid rgba(23,23,20,0.18);
+        }
+
+        .case-intro p {
+            max-width: 500px;
+
+            font-size: 15px;
+            line-height: 1.8;
+
+            color: #77736b;
+        }
+
+
+        /* =====================================================
+           HERO VISUAL
+        ===================================================== */
+
+        .case-visual {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding: 0 5vw;
+        }
+
+        .case-visual-inner {
+            position: relative;
+
+            min-height: 620px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171714 0%,
+                    #272723 45%,
+                    #55534b 100%
+                );
+        }
+
+        .case-visual-inner::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+        }
+
+        .operations-visual {
+            position: relative;
+            z-index: 2;
+
+            width: min(900px, 80%);
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 1px;
+
+            background: rgba(243,240,233,0.2);
+        }
+
+        .operation-card {
+            min-height: 190px;
+
+            padding: 30px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            background: rgba(23,23,20,0.92);
+
+            color: #f3f0e9;
+        }
+
+        .operation-card span {
+            font-size: 8px;
+            font-weight: 700;
+
+            letter-spacing: 0.16em;
+
+            color: #8e8b83;
+        }
+
+        .operation-card strong {
+            font-size: 23px;
+            font-weight: 500;
+
+            letter-spacing: -0.03em;
+        }
+
+
+        /* =====================================================
+           CASE DETAILS
+        ===================================================== */
+
+        .case-details {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding: 140px 5vw;
+        }
+
+        .case-details-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                2fr;
+
+            gap: 80px;
+        }
+
+        .case-label {
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+        }
+
+        .case-content h2 {
+            max-width: 850px;
+
+            font-size: clamp(42px, 5vw, 75px);
+
+            font-weight: 500;
+
+            line-height: 0.95;
+
+            letter-spacing: -0.055em;
+        }
+
+        .case-content h2 em {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+        }
+
+        .case-content p {
+            max-width: 650px;
+
+            margin-top: 40px;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            color: #77736b;
+        }
+
+
+        /* =====================================================
+           META
+        ===================================================== */
+
+        .case-meta {
+            margin-top: 90px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            border-top:
+                1px solid
+                rgba(23,23,20,0.18);
+        }
+
+        .case-meta-item {
+            padding: 25px 25px 25px 0;
+
+            border-right:
+                1px solid
+                rgba(23,23,20,0.18);
+        }
+
+        .case-meta-item:not(:first-child) {
+            padding-left: 25px;
+        }
+
+        .case-meta-item:last-child {
+            border-right: none;
+        }
+
+        .case-meta-item span {
+            display: block;
+
+            margin-bottom: 12px;
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.14em;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+        }
+
+        .case-meta-item strong {
+            font-size: 15px;
+
+            font-weight: 500;
+        }
+
+
+        /* =====================================================
+           WORKFLOW SECTION
+        ===================================================== */
+
+        .case-features {
+            background: #171714;
+
+            color: #f3f0e9;
+
+            padding:
+                140px
+                5vw
+                150px;
+        }
+
+        .case-features-inner {
+            max-width: 1440px;
+
+            margin: auto;
+        }
+
+        .case-features .case-label {
+            color: #77746d;
+        }
+
+        .feature-list {
+            margin-top: 90px;
+
+            border-top:
+                1px solid
+                rgba(243,240,233,0.18);
+        }
+
+        .feature {
+            display: grid;
+
+            grid-template-columns:
+                80px
+                1fr
+                1fr;
+
+            gap: 40px;
+
+            padding: 35px 0;
+
+            border-bottom:
+                1px solid
+                rgba(243,240,233,0.18);
+        }
+
+        .feature-number {
+            font-size: 9px;
+
+            color: #77746d;
+        }
+
+        .feature h3 {
+            font-size: 26px;
+
+            font-weight: 500;
+
+            letter-spacing: -0.03em;
+        }
+
+        .feature p {
+            max-width: 400px;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            color: #aaa79f;
+        }
+
+
+        /* =====================================================
+           TOOLS
+        ===================================================== */
+
+        .tools-section {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding:
+                130px
+                5vw;
+        }
+
+        .tools-heading {
+            max-width: 850px;
+        }
+
+        .tools-heading h2 {
+            margin-top: 30px;
+
+            font-size: clamp(45px, 6vw, 85px);
+
+            font-weight: 500;
+
+            line-height: 0.92;
+
+            letter-spacing: -0.06em;
+        }
+
+        .tools-heading h2 em {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+        }
+
+        .tools-grid {
+            margin-top: 80px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            border-top:
+                1px solid
+                rgba(23,23,20,0.18);
+
+            border-left:
+                1px solid
+                rgba(23,23,20,0.18);
+        }
+
+        .tool {
+            min-height: 130px;
+
+            padding: 25px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            border-right:
+                1px solid
+                rgba(23,23,20,0.18);
+
+            border-bottom:
+                1px solid
+                rgba(23,23,20,0.18);
+        }
+
+        .tool span {
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.13em;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+        }
+
+        .tool strong {
+            font-size: 17px;
+
+            font-weight: 500;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .case-cta {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding:
+                150px
+                5vw
+                170px;
+        }
+
+        .case-cta-content {
+            max-width: 1000px;
+
+            margin-left: auto;
+        }
+
+        .case-cta h2 {
+            margin-top: 35px;
+
+            font-size: clamp(55px, 7vw, 105px);
+
+            font-weight: 500;
+
+            line-height: 0.9;
+
+            letter-spacing: -0.065em;
+        }
+
+        .case-cta h2 em {
+            display: block;
+
+            margin-left: 8vw;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+        }
+
+        .live-button {
+            display: inline-flex;
+
+            margin-top: 65px;
+
+            padding: 17px 24px;
+
+            background: #171714;
+
+            color: #f3f0e9;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.13em;
+
+            text-transform: uppercase;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+        .live-button:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .case-header,
+            .case-visual,
+            .case-details,
+            .tools-section,
+            .case-cta {
+
+                padding-left: 6vw;
+                padding-right: 6vw;
+            }
+
+            .case-header h1 {
+                font-size:
+                    clamp(
+                        65px,
+                        12vw,
+                        110px
+                    );
+            }
+
+            .case-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .case-visual-inner {
+                min-height: 520px;
+            }
+
+            .operations-visual {
+                width: 85%;
+            }
+
+            .case-details-grid {
+                grid-template-columns: 1fr;
+
+                gap: 60px;
+            }
+
+            .feature {
+                grid-template-columns:
+                    60px
+                    1fr;
+            }
+
+            .feature p {
+                grid-column: 2;
+            }
+
+            .tools-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .case-header {
+                padding-top: 110px;
+                padding-bottom: 80px;
+            }
+
+            .case-number {
+                margin-top: 65px;
+            }
+
+            .case-header h1 {
+                font-size:
+                    clamp(
+                        55px,
+                        15vw,
+                        82px
+                    );
+            }
+
+            .case-header h1 em {
+                margin-left: 5vw;
+            }
+
+            .case-intro {
+                margin-top: 55px;
+                gap: 30px;
+            }
+
+            .case-visual {
+                padding: 0;
+            }
+
+            .case-visual-inner {
+                min-height: 500px;
+            }
+
+            .operations-visual {
+                width: 82%;
+
+                grid-template-columns: 1fr;
+            }
+
+            .operation-card {
+                min-height: 125px;
+            }
+
+            .case-details {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            .case-content h2 {
+                font-size: 46px;
+            }
+
+            .case-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .case-meta-item,
+            .case-meta-item:not(:first-child) {
+
+                padding: 22px 0;
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid
+                    rgba(23,23,20,0.18);
+            }
+
+            .case-meta-item:last-child {
+                border-bottom: none;
+            }
+
+            .case-features {
+                padding-top: 100px;
+                padding-bottom: 110px;
+            }
+
+            .feature-list {
+                margin-top: 65px;
+            }
+
+            .feature {
+                grid-template-columns:
+                    45px
+                    1fr;
+
+                gap: 15px;
+            }
+
+            .feature h3 {
+                font-size: 22px;
+            }
+
+            .feature p {
+                grid-column: 2;
+            }
+
+            .tools-section {
+                padding-top: 100px;
+                padding-bottom: 110px;
+            }
+
+            .tools-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                margin-top: 60px;
+            }
+
+            .tool {
+                min-height: 110px;
+                padding: 20px;
+            }
+
+            .case-cta {
+                padding-top: 100px;
+                padding-bottom: 110px;
+            }
+
+            .case-cta-content {
+                margin-left: 0;
+            }
+
+            .case-cta h2 {
+                font-size: 55px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <a
+                href="../index.html"
+                class="brand"
+            >
+                CRISTY<span>.</span>
+            </a>
+
+            <div class="nav-links">
+
+                <a href="../index.html#work">
+                    Work
+                </a>
+
+                <a href="../index.html#capabilities">
+                    Capabilities
+                </a>
+
+                <a href="../index.html#about">
+                    About
+                </a>
+
+                <a href="../index.html#contact">
+                    Contact
+                </a>
+
+            </div>
+
+            <a
+                href="../index.html#contact"
+                class="nav-cta"
+            >
+                Let's Talk ↗
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="case-study">
+
+
+        <!-- =================================================
+             CASE HEADER
+        ================================================== -->
+
+        <section class="case-header">
+
+            <a
+                href="../index.html#work"
+                class="case-back"
+            >
+                ← Back to Work
+            </a>
+
+
+            <p class="case-number">
+                03 / DATA & OPERATIONS CASE STUDY
+            </p>
+
+
+            <h1>
+
+                LEAD
+                <em>Operations.</em>
+
+            </h1>
+
+
+            <div class="case-intro">
+
+                <p>
+                    A structured lead operations workflow
+                    designed to turn raw prospect data into
+                    organized, enriched, and outreach-ready
+                    information.
+                </p>
+
+                <p>
+                    I handled research, contact enrichment,
+                    data organization, CRM updates, and
+                    workflow preparation to help sales teams
+                    work with cleaner and more actionable data.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HERO VISUAL
+        ================================================== -->
+
+        <section class="case-visual">
+
+            <div class="case-visual-inner">
+
+                <div class="operations-visual">
+
+
+                    <div class="operation-card">
+
+                        <span>
+                            01 / RESEARCH
+                        </span>
+
+                        <strong>
+                            FIND
+                        </strong>
+
+                    </div>
+
+
+                    <div class="operation-card">
+
+                        <span>
+                            02 / ENRICHMENT
+                        </span>
+
+                        <strong>
+                            VERIFY
+                        </strong>
+
+                    </div>
+
+
+                    <div class="operation-card">
+
+                        <span>
+                            03 / ORGANIZATION
+                        </span>
+
+                        <strong>
+                            STRUCTURE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="operation-card">
+
+                        <span>
+                            04 / CRM
+                        </span>
+
+                        <strong>
+                            ORGANIZE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="operation-card">
+
+                        <span>
+                            05 / OUTREACH
+                        </span>
+
+                        <strong>
+                            PREPARE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="operation-card">
+
+                        <span>
+                            06 / WORKFLOW
+                        </span>
+
+                        <strong>
+                            SUPPORT
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PROJECT OVERVIEW
+        ================================================== -->
+
+        <section class="case-details">
+
+            <div class="case-details-grid">
+
+
+                <div>
+
+                    <span class="case-label">
+                        THE PROJECT
+                    </span>
+
+                </div>
+
+
+                <div class="case-content">
+
+                    <h2>
+
+                        Good outreach starts
+                        with <em>good data.</em>
+
+                    </h2>
+
+
+                    <p>
+
+                        Lead generation is more than finding
+                        contact information. The data needs to
+                        be relevant, organized, enriched, and
+                        prepared for the next step in the sales
+                        process.
+
+                        <br><br>
+
+                        My role focused on turning prospect
+                        research into structured lead lists and
+                        organized CRM records that could support
+                        targeted outreach and sales operations.
+
+                    </p>
+
+
+                    <div class="case-meta">
+
+
+                        <div class="case-meta-item">
+
+                            <span>
+                                ROLE
+                            </span>
+
+                            <strong>
+                                Lead Research & Operations
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-meta-item">
+
+                            <span>
+                                FOCUS
+                            </span>
+
+                            <strong>
+                                Research / Enrichment / CRM
+                            </strong>
+
+                        </div>
+
+
+                        <div class="case-meta-item">
+
+                            <span>
+                                OUTPUT
+                            </span>
+
+                            <strong>
+                                Outreach-Ready Lead Data
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WORKFLOW
+        ================================================== -->
+
+        <section class="case-features">
+
+            <div class="case-features-inner">
+
+                <span class="case-label">
+                    WHAT I HANDLED
+                </span>
+
+
+                <div class="feature-list">
+
+
+                    <div class="feature">
+
+                        <span class="feature-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Lead Research
+                        </h3>
+
+                        <p>
+                            Researching companies and prospects
+                            based on defined target markets,
+                            industries, roles, and business
+                            criteria.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <span class="feature-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Contact Enrichment
+                        </h3>
+
+                        <p>
+                            Enriching prospect records with
+                            relevant contact information and
+                            additional business data.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <span class="feature-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Data Cleaning
+                        </h3>
+
+                        <p>
+                            Reviewing and organizing lead
+                            information so records are easier
+                            to work with and maintain.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <span class="feature-number">
+                            04
+                        </span>
+
+                        <h3>
+                            CRM Organization
+                        </h3>
+
+                        <p>
+                            Uploading and organizing prospect
+                            information inside CRM workflows
+                            for easier sales management.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <span class="feature-number">
+                            05
+                        </span>
+
+                        <h3>
+                            Lead Segmentation
+                        </h3>
+
+                        <p>
+                            Structuring lead lists according
+                            to targeting requirements so
+                            outreach can be more focused.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <span class="feature-number">
+                            06
+                        </span>
+
+                        <h3>
+                            Outreach Preparation
+                        </h3>
+
+                        <p>
+                            Preparing organized lead data for
+                            downstream outreach and automated
+                            communication workflows.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TOOLS
+        ================================================== -->
+
+        <section class="tools-section">
+
+
+            <div class="tools-heading">
+
+                <span class="case-label">
+                    TOOLS & WORKFLOW
+                </span>
+
+
+                <h2>
+
+                    The tools are only
+                    useful when the
+                    <em>workflow works.</em>
+
+                </h2>
+
+            </div>
+
+
+            <div class="tools-grid">
+
+
+                <div class="tool">
+
+                    <span>
+                        Lead Research
+                    </span>
+
+                    <strong>
+                        Apollo
+                    </strong>
+
+                </div>
+
+
+                <div class="tool">
+
+                    <span>
+                        Data Enrichment
+                    </span>
+
+                    <strong>
+                        Seamless AI
+                    </strong>
+
+                </div>
+
+
+                <div class="tool">
+
+                    <span>
+                        Prospect Data
+                    </span>
+
+                    <strong>
+                        Prospeo
+                    </strong>
+
+                </div>
+
+
+                <div class="tool">
+
+                    <span>
+                        CRM
+                    </span>
+
+                    <strong>
+                        GoHighLevel
+                    </strong>
+
+                </div>
+
+
+                <div class="tool">
+
+                    <span>
+                        Data Organization
+                    </span>
+
+                    <strong>
+                        Google Sheets
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CTA
+        ================================================== -->
+
+        <section class="case-cta">
+
+            <div class="case-cta-content">
+
+                <span class="case-label">
+                    NEXT PROJECT
+                </span>
+
+
+                <h2>
+
+                    See another
+                    <em>project.</em>
+
+                </h2>
+
+
+                <a
+                    href="brew-bliss.html"
+                    class="live-button"
+                >
+                    View Brew & Bliss ↗
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div>
+            © 2026 Cristy Develleres
+        </div>
+
+        <div>
+            E-commerce & Digital Operations
+        </div>
+
+        <a href="../index.html">
+            Back to Portfolio ↑
+        </a>
+
+    </footer>
+
+
+</body>
+
+</html>
+```

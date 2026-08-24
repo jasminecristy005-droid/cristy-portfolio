@@ -1,0 +1,917 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Services | Cristy Develleres</title>
+
+    <meta
+        name="description"
+        content="E-commerce, digital operations, data, CRM, and web support services by Cristy Develleres."
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           SERVICES PAGE
+        ===================================================== */
+
+        .services-page {
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .services-hero {
+            max-width: 1440px;
+            margin: auto;
+
+            padding:
+                150px
+                5vw
+                110px;
+        }
+
+        .services-back {
+            display: inline-flex;
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 0.14em;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .services-back:hover {
+            color: #171714;
+            transform: translateX(-4px);
+        }
+
+
+        .services-number {
+            margin-top: 85px;
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 0.16em;
+
+            color: #77736b;
+        }
+
+
+        .services-hero h1 {
+
+            max-width: 1150px;
+
+            margin-top: 25px;
+
+            font-size:
+                clamp(65px, 10vw, 150px);
+
+            font-weight: 500;
+
+            line-height: 0.84;
+
+            letter-spacing: -0.075em;
+
+            text-transform: uppercase;
+        }
+
+
+        .services-hero h1 em {
+
+            display: block;
+
+            margin-left: 12vw;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+
+            text-transform: none;
+        }
+
+
+        .services-intro {
+
+            max-width: 620px;
+
+            margin-top: 70px;
+            margin-left: auto;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            color: #77736b;
+        }
+
+
+        /* =====================================================
+           SERVICES
+        ===================================================== */
+
+        .services-list {
+
+            background: #171714;
+
+            color: #f3f0e9;
+
+            padding:
+                130px
+                5vw
+                150px;
+        }
+
+
+        .services-inner {
+
+            max-width: 1440px;
+
+            margin: auto;
+        }
+
+
+        .services-label {
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.15em;
+
+            color: #77746d;
+        }
+
+
+        .service-item {
+
+            display: grid;
+
+            grid-template-columns:
+                80px
+                1fr
+                1fr;
+
+            gap: 40px;
+
+            padding: 55px 0;
+
+            border-top:
+                1px solid
+                rgba(243,240,233,0.18);
+
+            transition:
+                padding-left 0.3s ease;
+        }
+
+
+        .service-item:first-of-type {
+            margin-top: 75px;
+        }
+
+
+        .service-item:hover {
+            padding-left: 15px;
+        }
+
+
+        .service-number {
+
+            font-size: 10px;
+
+            color: #77746d;
+        }
+
+
+        .service-item h2 {
+
+            font-size:
+                clamp(30px, 4vw, 52px);
+
+            font-weight: 500;
+
+            line-height: 1;
+
+            letter-spacing: -0.04em;
+        }
+
+
+        .service-item h2 em {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+        }
+
+
+        .service-description {
+
+            max-width: 440px;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            color: #aaa79f;
+        }
+
+
+        .service-description strong {
+
+            display: block;
+
+            margin-bottom: 18px;
+
+            font-size: 9px;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+
+            color: #f3f0e9;
+        }
+
+
+        .service-item:last-child {
+
+            border-bottom:
+                1px solid
+                rgba(243,240,233,0.18);
+        }
+
+
+        /* =====================================================
+           APPROACH
+        ===================================================== */
+
+        .services-approach {
+
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding:
+                140px
+                5vw
+                150px;
+        }
+
+
+        .approach-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                2fr;
+
+            gap: 80px;
+        }
+
+
+        .approach-content h2 {
+
+            max-width: 850px;
+
+            font-size:
+                clamp(45px, 6vw, 80px);
+
+            font-weight: 500;
+
+            line-height: 0.92;
+
+            letter-spacing: -0.055em;
+        }
+
+
+        .approach-content h2 em {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+        }
+
+
+        .approach-content p {
+
+            max-width: 650px;
+
+            margin-top: 40px;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            color: #77736b;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .services-cta {
+
+            background: #e8e4db;
+
+            padding:
+                140px
+                5vw
+                150px;
+        }
+
+
+        .services-cta-inner {
+
+            max-width: 1440px;
+
+            margin: auto;
+        }
+
+
+        .services-cta h2 {
+
+            max-width: 1000px;
+
+            margin-top: 30px;
+
+            font-size:
+                clamp(55px, 8vw, 115px);
+
+            font-weight: 500;
+
+            line-height: 0.88;
+
+            letter-spacing: -0.065em;
+        }
+
+
+        .services-cta h2 em {
+
+            display: block;
+
+            margin-left: 10vw;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+        }
+
+
+        .services-button {
+
+            display: inline-flex;
+
+            margin-top: 60px;
+
+            padding:
+                17px
+                25px;
+
+            background: #171714;
+
+            color: #f3f0e9;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.13em;
+
+            text-transform: uppercase;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+
+        .services-button:hover {
+
+            transform:
+                translateY(-4px);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .services-hero,
+            .services-approach {
+
+                padding-left: 6vw;
+                padding-right: 6vw;
+            }
+
+
+            .services-list,
+            .services-cta {
+
+                padding-left: 6vw;
+                padding-right: 6vw;
+            }
+
+
+            .service-item {
+
+                grid-template-columns:
+                    60px
+                    1fr;
+
+                gap: 20px;
+            }
+
+
+            .service-description {
+
+                grid-column: 2;
+            }
+
+
+            .approach-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 60px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .services-hero {
+
+                padding-top: 110px;
+                padding-bottom: 90px;
+            }
+
+
+            .services-number {
+
+                margin-top: 65px;
+            }
+
+
+            .services-hero h1 {
+
+                font-size:
+                    clamp(55px, 15vw, 82px);
+            }
+
+
+            .services-intro {
+
+                margin-top: 50px;
+                margin-left: 0;
+            }
+
+
+            .services-list {
+
+                padding-top: 100px;
+                padding-bottom: 110px;
+            }
+
+
+            .service-item {
+
+                grid-template-columns:
+                    45px
+                    1fr;
+
+                gap: 15px;
+
+                padding: 40px 0;
+            }
+
+
+            .service-item h2 {
+
+                font-size: 32px;
+            }
+
+
+            .service-description {
+
+                grid-column: 2;
+            }
+
+
+            .services-approach {
+
+                padding-top: 100px;
+                padding-bottom: 110px;
+            }
+
+
+            .services-cta {
+
+                padding-top: 100px;
+                padding-bottom: 110px;
+            }
+
+
+            .services-cta h2 {
+
+                font-size: 55px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <a
+                href="../index.html"
+                class="brand"
+            >
+                CRISTY<span>.</span>
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="../index.html#work">
+                    Work
+                </a>
+
+                <a href="../index.html#capabilities">
+                    Capabilities
+                </a>
+
+                <a href="../index.html#about">
+                    About
+                </a>
+
+                <a href="../index.html#contact">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <a
+                href="../index.html#contact"
+                class="nav-cta"
+            >
+                Let's Talk ↗
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="services-page">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="services-hero">
+
+            <a
+                href="../index.html"
+                class="services-back"
+            >
+                ← Back to Portfolio
+            </a>
+
+
+            <p class="services-number">
+                01 / SERVICES
+            </p>
+
+
+            <h1>
+
+                Digital support
+                <em>built around business.</em>
+
+            </h1>
+
+
+            <p class="services-intro">
+
+                I help online businesses keep their
+                storefronts, data, workflows, and
+                day-to-day operations organized —
+                combining practical business experience
+                with modern digital tools.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             SERVICES LIST
+        ================================================== -->
+
+        <section class="services-list">
+
+            <div class="services-inner">
+
+                <span class="services-label">
+                    WHAT I CAN HELP WITH
+                </span>
+
+
+                <!-- SERVICE 01 -->
+
+                <div class="service-item">
+
+                    <span class="service-number">
+                        01
+                    </span>
+
+
+                    <h2>
+                        E-commerce
+                        <em>Operations</em>
+                    </h2>
+
+
+                    <div class="service-description">
+
+                        <strong>
+                            Storefront & Orders
+                        </strong>
+
+                        Product listings, product
+                        organization, order processing,
+                        customer records, inventory
+                        coordination, and storefront updates.
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERVICE 02 -->
+
+                <div class="service-item">
+
+                    <span class="service-number">
+                        02
+                    </span>
+
+
+                    <h2>
+                        Lead & Data
+                        <em>Operations</em>
+                    </h2>
+
+
+                    <div class="service-description">
+
+                        <strong>
+                            Research & CRM
+                        </strong>
+
+                        Lead research, data enrichment,
+                        list building, spreadsheet
+                        organization, CRM updates, and
+                        outreach preparation.
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERVICE 03 -->
+
+                <div class="service-item">
+
+                    <span class="service-number">
+                        03
+                    </span>
+
+
+                    <h2>
+                        Web &
+                        <em>Digital</em>
+                    </h2>
+
+
+                    <div class="service-description">
+
+                        <strong>
+                            Pages & Experiences
+                        </strong>
+
+                        Responsive landing pages,
+                        e-commerce storefronts, forms,
+                        customer-facing experiences,
+                        and basic database-connected
+                        workflows.
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERVICE 04 -->
+
+                <div class="service-item">
+
+                    <span class="service-number">
+                        04
+                    </span>
+
+
+                    <h2>
+                        Business
+                        <em>Operations</em>
+                    </h2>
+
+
+                    <div class="service-description">
+
+                        <strong>
+                            Organization & Support
+                        </strong>
+
+                        Administrative workflows,
+                        spreadsheets, invoicing,
+                        customer support, documentation,
+                        and day-to-day digital assistance.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             APPROACH
+        ================================================== -->
+
+        <section class="services-approach">
+
+            <div class="approach-grid">
+
+                <div>
+
+                    <span class="services-label">
+                        THE APPROACH
+                    </span>
+
+                </div>
+
+
+                <div class="approach-content">
+
+                    <h2>
+                        I don't just
+                        <em>complete tasks.</em>
+                    </h2>
+
+
+                    <p>
+
+                        I look at how the pieces connect.
+                        Products affect orders. Orders affect
+                        customers. Data affects decisions.
+                        And organized systems make everything
+                        easier to manage.
+
+                    </p>
+
+
+                    <p>
+
+                        My goal is simple: make the digital
+                        side of your business more organized,
+                        reliable, and easier to operate.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CTA
+        ================================================== -->
+
+        <section class="services-cta">
+
+            <div class="services-cta-inner">
+
+                <span class="services-label">
+                    HAVE A PROJECT IN MIND?
+                </span>
+
+
+                <h2>
+
+                    Let's make
+                    <em>things work.</em>
+
+                </h2>
+
+
+                <a
+                    href="mailto:jasminecristy005@gmail.com"
+                    class="services-button"
+                >
+                    Start a Conversation ↗
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div>
+            © 2026 Cristy Develleres
+        </div>
+
+
+        <div>
+            E-commerce & Digital Operations
+        </div>
+
+
+        <a href="../index.html">
+
+            Back to Portfolio ↑
+
+        </a>
+
+    </footer>
+
+
+</body>
+
+</html>

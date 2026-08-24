@@ -1,0 +1,1273 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Brew & Bliss — Case Study | Cristy Develleres</title>
+
+    <meta
+        name="description"
+        content="Brew & Bliss — A coffee brand landing page, lead capture, and order workflow designed and developed by Cristy Develleres."
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           BREW & BLISS CASE STUDY
+        ===================================================== */
+
+        .brew-case {
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .brew-header {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding: 135px 5vw 90px;
+        }
+
+        .brew-back {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.14em;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .brew-back:hover {
+            color: #171714;
+
+            transform: translateX(-4px);
+        }
+
+
+        .brew-number {
+            margin-top: 85px;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.16em;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+        }
+
+
+        .brew-header h1 {
+            max-width: 1100px;
+
+            margin-top: 25px;
+
+            font-size: clamp(65px, 9vw, 135px);
+
+            font-weight: 500;
+
+            line-height: 0.84;
+
+            letter-spacing: -0.075em;
+
+            text-transform: uppercase;
+        }
+
+        .brew-header h1 em {
+            display: block;
+
+            margin-left: 10vw;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+
+            text-transform: none;
+        }
+
+
+        .brew-intro {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            margin-top: 75px;
+
+            padding-top: 30px;
+
+            border-top:
+                1px solid
+                rgba(23,23,20,0.18);
+        }
+
+        .brew-intro p {
+            max-width: 500px;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            color: #77736b;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .brew-visual {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding: 0 5vw;
+        }
+
+        .brew-visual-inner {
+            position: relative;
+
+            min-height: 600px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2b211d 0%,
+                    #5a4030 50%,
+                    #a27b59 100%
+                );
+        }
+
+        .brew-visual-inner::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    rgba(255,255,255,0.13),
+                    transparent 35%
+                );
+        }
+
+
+        .brew-mark {
+            position: relative;
+
+            z-index: 2;
+
+            text-align: center;
+
+            color: #f3f0e9;
+        }
+
+        .brew-mark small {
+            display: block;
+
+            margin-bottom: 20px;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.3em;
+        }
+
+        .brew-mark h2 {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(65px, 11vw, 155px);
+
+            font-weight: 400;
+
+            line-height: 0.85;
+
+            letter-spacing: -0.07em;
+        }
+
+
+        /* =====================================================
+           OVERVIEW
+        ===================================================== */
+
+        .brew-details {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding: 130px 5vw;
+        }
+
+        .brew-details-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                2fr;
+
+            gap: 80px;
+        }
+
+
+        .brew-label {
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+        }
+
+
+        .brew-content h2 {
+            max-width: 850px;
+
+            font-size: clamp(42px, 5vw, 72px);
+
+            font-weight: 500;
+
+            line-height: 0.95;
+
+            letter-spacing: -0.055em;
+        }
+
+        .brew-content h2 em {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+        }
+
+
+        .brew-content p {
+            max-width: 650px;
+
+            margin-top: 38px;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            color: #77736b;
+        }
+
+
+        /* =====================================================
+           PROJECT META
+        ===================================================== */
+
+        .brew-meta {
+            margin-top: 75px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            border-top:
+                1px solid
+                rgba(23,23,20,0.18);
+        }
+
+        .brew-meta-item {
+            padding: 25px 25px 25px 0;
+
+            border-right:
+                1px solid
+                rgba(23,23,20,0.18);
+        }
+
+        .brew-meta-item:not(:first-child) {
+            padding-left: 25px;
+        }
+
+        .brew-meta-item:last-child {
+            border-right: none;
+        }
+
+        .brew-meta-item span {
+            display: block;
+
+            margin-bottom: 12px;
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.14em;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+        }
+
+        .brew-meta-item strong {
+            font-size: 14px;
+
+            font-weight: 500;
+        }
+
+
+        /* =====================================================
+           WHAT I BUILT
+        ===================================================== */
+
+        .brew-features {
+            background: #171714;
+
+            color: #f3f0e9;
+
+            padding:
+                125px
+                5vw
+                135px;
+        }
+
+        .brew-features-inner {
+            max-width: 1440px;
+
+            margin: auto;
+        }
+
+        .brew-features .brew-label {
+            color: #77746d;
+        }
+
+
+        .brew-feature-list {
+            margin-top: 75px;
+
+            border-top:
+                1px solid
+                rgba(243,240,233,0.18);
+        }
+
+
+        .brew-feature {
+            display: grid;
+
+            grid-template-columns:
+                70px
+                1fr
+                1fr;
+
+            gap: 40px;
+
+            padding: 32px 0;
+
+            border-bottom:
+                1px solid
+                rgba(243,240,233,0.18);
+        }
+
+        .brew-feature-number {
+            font-size: 9px;
+
+            color: #77746d;
+        }
+
+        .brew-feature h3 {
+            font-size: 25px;
+
+            font-weight: 500;
+
+            letter-spacing: -0.03em;
+        }
+
+        .brew-feature p {
+            max-width: 400px;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            color: #aaa79f;
+        }
+
+
+        /* =====================================================
+           RESULTS / VALUE
+        ===================================================== */
+
+        .brew-results {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding:
+                130px
+                5vw
+                140px;
+        }
+
+        .brew-results-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                2fr;
+
+            gap: 80px;
+        }
+
+        .brew-results-content h2 {
+            max-width: 850px;
+
+            font-size: clamp(45px, 5.5vw, 78px);
+
+            font-weight: 500;
+
+            line-height: 0.92;
+
+            letter-spacing: -0.06em;
+        }
+
+        .brew-results-content h2 em {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+        }
+
+        .brew-results-content p {
+            max-width: 650px;
+
+            margin-top: 38px;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            color: #77736b;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .brew-cta {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding:
+                110px
+                5vw
+                160px;
+        }
+
+        .brew-cta-content {
+            max-width: 1000px;
+
+            margin-left: auto;
+        }
+
+        .brew-cta h2 {
+            margin-top: 30px;
+
+            font-size: clamp(55px, 7vw, 105px);
+
+            font-weight: 500;
+
+            line-height: 0.9;
+
+            letter-spacing: -0.065em;
+        }
+
+        .brew-cta h2 em {
+            display: block;
+
+            margin-left: 8vw;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+        }
+
+
+        .brew-live-button {
+            display: inline-flex;
+
+            margin-top: 55px;
+
+            padding: 17px 24px;
+
+            background: #171714;
+
+            color: #f3f0e9;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.13em;
+
+            text-transform: uppercase;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+        .brew-live-button:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .brew-header,
+            .brew-visual,
+            .brew-details,
+            .brew-results,
+            .brew-cta {
+
+                padding-left: 6vw;
+                padding-right: 6vw;
+
+            }
+
+            .brew-intro {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .brew-visual-inner {
+
+                min-height: 500px;
+
+            }
+
+            .brew-details-grid,
+            .brew-results-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 55px;
+
+            }
+
+            .brew-feature {
+
+                grid-template-columns:
+                    60px
+                    1fr;
+
+            }
+
+            .brew-feature p {
+
+                grid-column: 2;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .brew-header {
+
+                padding-top: 110px;
+                padding-bottom: 75px;
+
+            }
+
+            .brew-number {
+
+                margin-top: 60px;
+
+            }
+
+            .brew-header h1 {
+
+                font-size:
+                    clamp(
+                        52px,
+                        14vw,
+                        80px
+                    );
+
+            }
+
+            .brew-header h1 em {
+
+                margin-left: 5vw;
+
+            }
+
+            .brew-intro {
+
+                margin-top: 50px;
+
+                gap: 28px;
+
+            }
+
+            .brew-visual {
+
+                padding: 0;
+
+            }
+
+            .brew-visual-inner {
+
+                min-height: 420px;
+
+            }
+
+            .brew-details {
+
+                padding-top: 95px;
+                padding-bottom: 95px;
+
+            }
+
+            .brew-meta {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .brew-meta-item,
+            .brew-meta-item:not(:first-child) {
+
+                padding: 22px 0;
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid
+                    rgba(23,23,20,0.18);
+
+            }
+
+            .brew-meta-item:last-child {
+
+                border-bottom: none;
+
+            }
+
+            .brew-features {
+
+                padding-top: 95px;
+                padding-bottom: 105px;
+
+            }
+
+            .brew-feature-list {
+
+                margin-top: 60px;
+
+            }
+
+            .brew-feature {
+
+                grid-template-columns:
+                    40px
+                    1fr;
+
+                gap: 15px;
+
+            }
+
+            .brew-feature h3 {
+
+                font-size: 21px;
+
+            }
+
+            .brew-feature p {
+
+                grid-column: 2;
+
+            }
+
+            .brew-results {
+
+                padding-top: 95px;
+                padding-bottom: 100px;
+
+            }
+
+            .brew-cta {
+
+                padding-top: 90px;
+                padding-bottom: 105px;
+
+            }
+
+            .brew-cta-content {
+
+                margin-left: 0;
+
+            }
+
+            .brew-cta h2 {
+
+                font-size: 54px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <a
+                href="../index.html"
+                class="brand"
+            >
+                CRISTY<span>.</span>
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="../index.html#work">
+                    Work
+                </a>
+
+                <a href="../index.html#capabilities">
+                    Capabilities
+                </a>
+
+                <a href="../index.html#about">
+                    About
+                </a>
+
+                <a href="../index.html#contact">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <a
+                href="../index.html#contact"
+                class="nav-cta"
+            >
+                Let's Talk ↗
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="brew-case">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <section class="brew-header">
+
+            <a
+                href="../index.html#work"
+                class="brew-back"
+            >
+                ← Back to Work
+            </a>
+
+
+            <p class="brew-number">
+                02 / DIGITAL EXPERIENCE CASE STUDY
+            </p>
+
+
+            <h1>
+
+                Brew & Bliss
+
+                <em>From visitor to customer.</em>
+
+            </h1>
+
+
+            <div class="brew-intro">
+
+                <p>
+
+                    A coffee brand landing page designed
+                    to turn a simple online visit into a
+                    clear, guided customer journey.
+
+                </p>
+
+
+                <p>
+
+                    I built the experience from the visual
+                    landing page through lead capture,
+                    ordering, database storage, and
+                    administrative order tracking.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HERO VISUAL
+        ================================================== -->
+
+        <section class="brew-visual">
+
+            <div class="brew-visual-inner">
+
+                <div class="brew-mark">
+
+                    <small>
+                        COFFEE / DIGITAL EXPERIENCE
+                    </small>
+
+                    <h2>
+                        Brew & Bliss
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             OVERVIEW
+        ================================================== -->
+
+        <section class="brew-details">
+
+            <div class="brew-details-grid">
+
+
+                <div>
+
+                    <span class="brew-label">
+                        THE PROJECT
+                    </span>
+
+                </div>
+
+
+                <div class="brew-content">
+
+                    <h2>
+
+                        A landing page
+                        <em>with a purpose.</em>
+
+                    </h2>
+
+
+                    <p>
+
+                        Brew & Bliss was created as a
+                        complete digital funnel rather than
+                        a static website. The experience
+                        connects brand presentation,
+                        lead capture, ordering, and
+                        operational tracking into one flow.
+
+                    </p>
+
+
+                    <div class="brew-meta">
+
+
+                        <div class="brew-meta-item">
+
+                            <span>
+                                ROLE
+                            </span>
+
+                            <strong>
+                                Design & Development
+                            </strong>
+
+                        </div>
+
+
+                        <div class="brew-meta-item">
+
+                            <span>
+                                STACK
+                            </span>
+
+                            <strong>
+                                HTML / CSS / JavaScript
+                            </strong>
+
+                        </div>
+
+
+                        <div class="brew-meta-item">
+
+                            <span>
+                                INTEGRATION
+                            </span>
+
+                            <strong>
+                                Formspree / Supabase
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WHAT I BUILT
+        ================================================== -->
+
+        <section class="brew-features">
+
+            <div class="brew-features-inner">
+
+
+                <span class="brew-label">
+                    WHAT I BUILT
+                </span>
+
+
+                <div class="brew-feature-list">
+
+
+                    <div class="brew-feature">
+
+                        <span class="brew-feature-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Brand Landing Page
+                        </h3>
+
+                        <p>
+
+                            A responsive coffee brand
+                            experience designed around
+                            clear messaging, visual hierarchy,
+                            and strong calls to action.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="brew-feature">
+
+                        <span class="brew-feature-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Lead Capture
+                        </h3>
+
+                        <p>
+
+                            A dedicated form allows visitors
+                            to submit their information and
+                            enter the brand's customer journey.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="brew-feature">
+
+                        <span class="brew-feature-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Online Ordering
+                        </h3>
+
+                        <p>
+
+                            Customers can select products,
+                            quantities, order type, and
+                            additional instructions through
+                            the ordering experience.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="brew-feature">
+
+                        <span class="brew-feature-number">
+                            04
+                        </span>
+
+                        <h3>
+                            Order Database
+                        </h3>
+
+                        <p>
+
+                            Order records are stored in
+                            Supabase so information can
+                            persist beyond the browser session.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="brew-feature">
+
+                        <span class="brew-feature-number">
+                            05
+                        </span>
+
+                        <h3>
+                            Admin Order Tracking
+                        </h3>
+
+                        <p>
+
+                            An administrative dashboard
+                            allows orders to be monitored and
+                            moved through operational statuses.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="brew-feature">
+
+                        <span class="brew-feature-number">
+                            06
+                        </span>
+
+                        <h3>
+                            Customer Journey
+                        </h3>
+
+                        <p>
+
+                            The project connects discovery,
+                            lead capture, ordering, confirmation,
+                            and order tracking into one
+                            continuous experience.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             VALUE
+        ================================================== -->
+
+        <section class="brew-results">
+
+            <div class="brew-results-grid">
+
+
+                <div>
+
+                    <span class="brew-label">
+                        THE VALUE
+                    </span>
+
+                </div>
+
+
+                <div class="brew-results-content">
+
+                    <h2>
+
+                        Not just
+                        <em>a pretty page.</em>
+
+                    </h2>
+
+
+                    <p>
+
+                        The goal was to demonstrate how a
+                        small business can connect its
+                        customer-facing website with the
+                        operational systems behind it.
+
+                        Instead of treating the website,
+                        forms, orders, and administration as
+                        separate pieces, the project brings
+                        them together into one workflow.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CTA
+        ================================================== -->
+
+        <section class="brew-cta">
+
+            <div class="brew-cta-content">
+
+
+                <span class="brew-label">
+                    SEE THE PROJECT
+                </span>
+
+
+                <h2>
+
+                    Experience
+                    <em>Brew & Bliss.</em>
+
+                </h2>
+
+
+                <a
+    href="https://jasminecristy005-droid.github.io/brew-bliss-landing-page/"
+    class="brew-live-button"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    View Project ↗
+</a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div>
+            © 2026 Cristy Develleres
+        </div>
+
+        <div>
+            E-commerce & Digital Operations
+        </div>
+
+        <a href="../index.html">
+            Back to Portfolio ↑
+        </a>
+
+    </footer>
+
+
+</body>
+
+</html>
