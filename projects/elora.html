@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- ÉLORA case study page -->
 <html lang="en">
 
 <head>
@@ -21,10 +22,658 @@
         href="../css/style.css"
     >
 
+    <style>
+
+        /* =====================================================
+           ÉLORA CASE STUDY
+        ===================================================== */
+
+        .case-study {
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           CASE HEADER
+        ===================================================== */
+
+        .case-header {
+            max-width: 1440px;
+            margin: auto;
+            padding: 135px 5vw 90px;
+        }
+
+        .case-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+
+            color: #77736b;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .case-back:hover {
+            color: #171714;
+            transform: translateX(-4px);
+        }
+
+
+        .case-number {
+            margin-top: 85px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+
+            color: #77736b;
+        }
+
+
+        .case-header h1 {
+            max-width: 1200px;
+
+            margin-top: 25px;
+
+            font-size: clamp(70px, 10vw, 150px);
+            font-weight: 500;
+            line-height: 0.82;
+
+            letter-spacing: -0.075em;
+            text-transform: uppercase;
+        }
+
+        .case-header h1 em {
+            display: block;
+
+            margin-left: 12vw;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+            text-transform: none;
+        }
+
+
+        .case-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            margin-top: 80px;
+
+            padding-top: 30px;
+
+            border-top: 1px solid rgba(23,23,20,0.18);
+        }
+
+        .case-intro p {
+            max-width: 500px;
+
+            font-size: 15px;
+            line-height: 1.8;
+
+            color: #77736b;
+        }
+
+
+        /* =====================================================
+           HERO VISUAL
+        ===================================================== */
+
+        .case-visual {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding: 0 5vw;
+        }
+
+        .case-visual-inner {
+            position: relative;
+
+            min-height: 650px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #24231f 0%,
+                    #47433b 45%,
+                    #8b806f 100%
+                );
+        }
+
+        .case-visual-inner::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    rgba(255,255,255,0.14),
+                    transparent 35%
+                );
+        }
+
+
+        .elora-mark {
+            position: relative;
+            z-index: 2;
+
+            text-align: center;
+
+            color: #f3f0e9;
+        }
+
+        .elora-mark small {
+            display: block;
+
+            margin-bottom: 20px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+        }
+
+        .elora-mark h2 {
+            font-size: clamp(70px, 12vw, 170px);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+
+            line-height: 0.8;
+
+            letter-spacing: -0.07em;
+        }
+
+
+        /* =====================================================
+           CASE DETAILS
+        ===================================================== */
+
+        .case-details {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding: 140px 5vw;
+        }
+
+        .case-details-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                2fr;
+
+            gap: 80px;
+        }
+
+
+        .case-label {
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+        }
+
+
+        .case-content h2 {
+            max-width: 850px;
+
+            font-size: clamp(42px, 5vw, 75px);
+
+            font-weight: 500;
+
+            line-height: 0.95;
+
+            letter-spacing: -0.055em;
+        }
+
+        .case-content h2 em {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+        }
+
+
+        .case-content p {
+            max-width: 650px;
+
+            margin-top: 40px;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            color: #77736b;
+        }
+
+
+        /* =====================================================
+           ROLE / TOOLS
+        ===================================================== */
+
+        .case-meta {
+            margin-top: 90px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            border-top: 1px solid rgba(23,23,20,0.18);
+        }
+
+        .case-meta-item {
+            padding: 25px 25px 25px 0;
+
+            border-right:
+                1px solid rgba(23,23,20,0.18);
+        }
+
+        .case-meta-item:not(:first-child) {
+            padding-left: 25px;
+        }
+
+        .case-meta-item:last-child {
+            border-right: none;
+        }
+
+        .case-meta-item span {
+            display: block;
+
+            margin-bottom: 12px;
+
+            font-size: 8px;
+            font-weight: 700;
+
+            letter-spacing: 0.14em;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+        }
+
+        .case-meta-item strong {
+            font-size: 15px;
+
+            font-weight: 500;
+        }
+
+
+        /* =====================================================
+           FEATURES
+        ===================================================== */
+
+        .case-features {
+            background: #171714;
+
+            color: #f3f0e9;
+
+            padding:
+                140px
+                5vw
+                150px;
+        }
+
+        .case-features-inner {
+            max-width: 1440px;
+
+            margin: auto;
+        }
+
+        .case-features .case-label {
+            color: #77746d;
+        }
+
+
+        .feature-list {
+            margin-top: 90px;
+
+            border-top:
+                1px solid
+                rgba(243,240,233,0.18);
+        }
+
+        .feature {
+            display: grid;
+
+            grid-template-columns:
+                80px
+                1fr
+                1fr;
+
+            gap: 40px;
+
+            padding: 35px 0;
+
+            border-bottom:
+                1px solid
+                rgba(243,240,233,0.18);
+        }
+
+        .feature-number {
+            font-size: 9px;
+
+            color: #77746d;
+        }
+
+        .feature h3 {
+            font-size: 26px;
+
+            font-weight: 500;
+
+            letter-spacing: -0.03em;
+        }
+
+        .feature p {
+            max-width: 400px;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            color: #aaa79f;
+        }
+
+
+        /* =====================================================
+           LIVE PROJECT
+        ===================================================== */
+
+        .case-cta {
+            max-width: 1440px;
+
+            margin: auto;
+
+            padding:
+                150px
+                5vw
+                170px;
+        }
+
+        .case-cta-content {
+            max-width: 1000px;
+
+            margin-left: auto;
+        }
+
+        .case-cta h2 {
+            margin-top: 35px;
+
+            font-size: clamp(55px, 7vw, 105px);
+
+            font-weight: 500;
+
+            line-height: 0.9;
+
+            letter-spacing: -0.065em;
+        }
+
+        .case-cta h2 em {
+            display: block;
+
+            margin-left: 8vw;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-weight: 400;
+        }
+
+
+        .live-button {
+            display: inline-flex;
+
+            margin-top: 65px;
+
+            padding: 17px 24px;
+
+            background: #171714;
+
+            color: #f3f0e9;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.13em;
+
+            text-transform: uppercase;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+        .live-button:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .case-header,
+            .case-visual,
+            .case-details,
+            .case-cta {
+                padding-left: 6vw;
+                padding-right: 6vw;
+            }
+
+            .case-header h1 {
+                font-size: clamp(65px, 12vw, 110px);
+            }
+
+            .case-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .case-visual-inner {
+                min-height: 520px;
+            }
+
+            .case-details-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .feature {
+                grid-template-columns: 60px 1fr;
+            }
+
+            .feature p {
+                grid-column: 2;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .case-header {
+                padding-top: 110px;
+                padding-bottom: 80px;
+            }
+
+            .case-number {
+                margin-top: 65px;
+            }
+
+            .case-header h1 {
+                font-size: clamp(55px, 15vw, 82px);
+            }
+
+            .case-header h1 em {
+                margin-left: 5vw;
+            }
+
+            .case-intro {
+                margin-top: 55px;
+                gap: 30px;
+            }
+
+            .case-visual {
+                padding: 0;
+            }
+
+            .case-visual-inner {
+                min-height: 430px;
+            }
+
+            .case-details {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            .case-content h2 {
+                font-size: 46px;
+            }
+
+            .case-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .case-meta-item,
+            .case-meta-item:not(:first-child) {
+                padding: 22px 0;
+                border-right: none;
+                border-bottom:
+                    1px solid
+                    rgba(23,23,20,0.18);
+            }
+
+            .case-meta-item:last-child {
+                border-bottom: none;
+            }
+
+            .case-features {
+                padding-top: 100px;
+                padding-bottom: 110px;
+            }
+
+            .feature-list {
+                margin-top: 65px;
+            }
+
+            .feature {
+                grid-template-columns: 45px 1fr;
+                gap: 15px;
+            }
+
+            .feature h3 {
+                font-size: 22px;
+            }
+
+            .feature p {
+                grid-column: 2;
+            }
+
+            .case-cta {
+                padding-top: 100px;
+                padding-bottom: 110px;
+            }
+
+            .case-cta-content {
+                margin-left: 0;
+            }
+
+            .case-cta h2 {
+                font-size: 55px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
 <body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <a
+                href="../index.html"
+                class="brand"
+            >
+                CRISTY<span>.</span>
+            </a>
+
+            <div class="nav-links">
+
+                <a href="../index.html#work">
+                    Work
+                </a>
+
+                <a href="../index.html#capabilities">
+                    Capabilities
+                </a>
+
+                <a href="../index.html#about">
+                    About
+                </a>
+
+                <a href="../index.html#contact">
+                    Contact
+                </a>
+
+            </div>
+
+            <a
+                href="../index.html#contact"
+                class="nav-cta"
+            >
+                Let's Talk ↗
+            </a>
+
+        </nav>
+
+    </header>
 
 
     <main class="case-study">
@@ -79,33 +728,50 @@
         <!-- =================================================
              HERO VISUAL
         ================================================== -->
+<section class="case-visual">
 
-        <section class="case-visual">
+    <div class="case-visual-inner elora-case-hero">
 
-            <div class="case-visual-inner elora-case-hero">
+        <div class="elora-product product-left">
+            <img
+                src="../elora-store/assets/images/noir-bag.jpg"
+                alt="ÉLORA Noir Bag"
+            >
+        </div>
 
+        <div class="elora-product product-center">
+            <img
+                src="../elora-store/assets/images/signature-bag.png"
+                alt="ÉLORA Signature Bag"
+            >
+        </div>
 
-                <div class="elora-case-title">
+        <div class="elora-product product-right">
+            <img
+                src="../elora-store/assets/images/timepiece.png"
+                alt="ÉLORA Timepiece"
+            >
+        </div>
 
-                    <span>
-                        ÉLORA / E-COMMERCE SYSTEM
-                    </span>
+        <div class="elora-case-title">
 
-                    <h2>
-                        ÉLORA
-                    </h2>
+            <span>
+                ÉLORA / E-COMMERCE SYSTEM
+            </span>
 
-                    <small>
-                        LUXURY COMMERCE
-                    </small>
+            <h2>
+                ÉLORA
+            </h2>
 
-                </div>
+            <small>
+                LUXURY COMMERCE
+            </small>
 
+        </div>
 
-            </div>
+    </div>
 
-        </section>
-
+</section>    
 
         <!-- =================================================
              PROJECT OVERVIEW
@@ -132,7 +798,6 @@
                         <em>A working system.</em>
                     </h2>
 
-
                     <p>
                         ÉLORA was developed as a complete
                         e-commerce concept rather than simply
@@ -143,9 +808,7 @@
                         information.
                     </p>
 
-
                     <div class="case-meta">
-
 
                         <div class="case-meta-item">
 
@@ -185,7 +848,6 @@
 
                         </div>
 
-
                     </div>
 
                 </div>
@@ -202,7 +864,6 @@
         <section class="case-features">
 
             <div class="case-features-inner">
-
 
                 <span class="case-label">
                     WHAT I BUILT
@@ -326,7 +987,6 @@
 
                     </div>
 
-
                 </div>
 
             </div>
@@ -342,27 +1002,21 @@
 
             <div class="case-cta-content">
 
-
                 <span class="case-label">
                     SEE THE PROJECT
                 </span>
-
 
                 <h2>
                     Experience
                     <em>ÉLORA.</em>
                 </h2>
 
-
                 <a
-    href="https://jasminecristy005-droid.github.io/elora-store/"
-    class="live-button"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    View Live Project ↗
-</a>
-
+                    href="../elora-store/index.html"
+                    class="live-button"
+                >
+                    View Live Project ↗
+                </a>
 
             </div>
 
@@ -382,11 +1036,9 @@
             © 2026 Cristy Develleres
         </div>
 
-
         <div>
             E-commerce & Digital Operations
         </div>
-
 
         <a href="../index.html">
             Back to Portfolio ↑
