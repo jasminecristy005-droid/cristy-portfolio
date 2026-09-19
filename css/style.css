@@ -2187,6 +2187,14 @@ color: var(--muted);
     transform: translateY(-6px);
 }
 
+.project-grid .project-image img {
+    transition: transform 0.6s cubic-bezier(.2, .7, .2, 1);
+}
+
+.project-grid .project:hover .project-image img {
+    transform: scale(1.025);
+}
+
 .project-grid .project-image {
     height: 500px;
 }
