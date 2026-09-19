@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ÉLORA Admin Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="admin-login">
+
+        <div class="admin-login-card">
+
+            <p class="eyebrow">ÉLORA ADMIN</p>
+
+            <h1>Welcome Back</h1>
+
+            <p>
+                Sign in to manage your orders.
+            </p>
+
+            <form id="adminLoginForm">
+
+                <input
+                    type="email"
+                    id="adminEmail"
+                    placeholder="Email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Password"
+                    required
+                >
+
+                <button type="submit">
+                    Sign In
+                </button>
+
+            </form>
+
+            <p id="loginMessage"></p>
+
+        </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase-config.js"></script>
+
+    <script src="js/admin-login.js"></script>
+
+</body>
+
+</html>

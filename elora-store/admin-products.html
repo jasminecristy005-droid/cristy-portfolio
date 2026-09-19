@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ÉLORA Admin | Products</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="admin-body">
+
+
+    <!-- ADMIN HEADER -->
+
+    <header class="admin-header">
+
+        <a href="admin.html" class="admin-logo">
+            ÉLORA
+        </a>
+
+        <div class="admin-header-right">
+
+            <span>
+                Product Management
+            </span>
+
+            <a href="admin.html">
+                Dashboard
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ADMIN LAYOUT -->
+
+    <div class="admin-layout">
+
+
+        <!-- SIDEBAR -->
+
+<aside class="admin-sidebar">
+
+    <nav>
+<a href="admin.html"
+   class="admin-nav">
+    Dashboard
+</a>
+
+<a href="admin.html#orders"
+   class="admin-nav">
+    Orders
+</a>
+
+        <a href="admin-products.html"
+   class="admin-nav active">
+    Products
+</a>
+
+        <a href="admin-customers.html"
+   class="admin-nav">
+    Customers
+</a>
+
+        <a href="./admin-settings.html" class="admin-nav">
+            Settings
+        </a>
+
+    </nav>
+
+</aside>
+
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="admin-main">
+
+
+            <div class="admin-title">
+
+                <p class="eyebrow">
+                    ÉLORA COLLECTION
+                </p>
+
+                <h1>
+                    Products
+                </h1>
+
+            </div>
+
+
+
+            <!-- PRODUCT TABLE -->
+
+            <section class="admin-orders">
+
+                <<div class="admin-section-heading">
+
+    <div>
+        <p class="eyebrow">
+            ÉLORA COLLECTION
+        </p>
+
+        <h2>
+            Product Catalog
+        </h2>
+    </div>
+
+    <button
+        type="button"
+        id="addProductButton"
+        class="view-order-button"
+    >
+        + Add Product
+    </button>
+
+</div>
+
+
+                <div class="orders-table-wrapper">
+
+                    <table class="orders-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Product
+                                </th>
+
+                                <th>
+                                    Category
+                                </th>
+
+                                <th>
+                                    Description
+                                </th>
+
+                                <th>
+                                    Price
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="productsTableBody">
+
+                            <tr>
+
+                                <td colspan="5">
+                                    Loading products...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+<!-- ADD PRODUCT MODAL -->
+
+<div
+    id="productModal"
+    class="order-modal"
+    style="display: none;"
+>
+
+    <div class="order-modal-content">
+
+        <button
+            type="button"
+            id="closeProductModal"
+            class="order-modal-close"
+        >
+            ×
+        </button>
+
+        <p class="eyebrow">
+            ÉLORA COLLECTION
+        </p>
+
+        <h2>
+            Add Product
+        </h2>
+
+
+        <form id="addProductForm">
+
+            <div class="order-detail-grid">
+
+                <div>
+                    <label for="productName">
+                        Product Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productName"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label for="productCategory">
+                        Category
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productCategory"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label for="productPrice">
+                        Price
+                    </label>
+
+                    <input
+                        type="number"
+                        id="productPrice"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label for="productStock">
+                        Stock
+                    </label>
+
+                    <input
+                        type="number"
+                        id="productStock"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <div style="margin-top: 20px;">
+
+                <label for="productDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="productDescription"
+                    rows="4"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div style="margin-top: 20px;">
+
+                <label for="productImage">
+                    Image Path
+                </label>
+
+                <input
+                    type="text"
+                    id="productImage"
+                    placeholder="assets/images/product.jpg"
+                >
+
+            </div>
+
+
+            <div style="margin-top: 24px;">
+
+                <button
+                    type="submit"
+                    class="view-order-button"
+                >
+                    Save Product
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- EDIT PRODUCT MODAL -->
+
+<div
+    id="editProductModal"
+    class="order-modal"
+    style="display: none;"
+>
+
+    <div class="order-modal-content">
+
+        <button
+            type="button"
+            id="closeEditProductModal"
+            class="order-modal-close"
+        >
+            ×
+        </button>
+
+        <p class="eyebrow">
+            ÉLORA COLLECTION
+        </p>
+
+        <h2>
+            Edit Product
+        </h2>
+
+
+        <form id="editProductForm">
+
+            <!-- PRODUCT ID -->
+
+            <input
+                type="hidden"
+                id="editProductId"
+            >
+
+
+            <div class="order-detail-grid">
+
+                <div>
+
+                    <label for="editProductName">
+                        Product Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editProductName"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label for="editProductCategory">
+                        Category
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editProductCategory"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label for="editProductPrice">
+                        Price
+                    </label>
+
+                    <input
+                        type="number"
+                        id="editProductPrice"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label for="editProductStock">
+                        Stock
+                    </label>
+
+                    <input
+                        type="number"
+                        id="editProductStock"
+                        min="0"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div style="margin-top: 20px;">
+
+                <label for="editProductDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="editProductDescription"
+                    rows="4"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div style="margin-top: 20px;">
+
+                <label for="editProductImage">
+                    Image Path
+                </label>
+
+                <input
+                    type="text"
+                    id="editProductImage"
+                >
+
+            </div>
+
+
+            <div style="margin-top: 24px;">
+
+                <button
+                    type="submit"
+                    class="view-order-button"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+        </main>
+
+
+    </div>
+
+
+
+    <!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase-config.js"></script>
+
+<!-- PRODUCTS ADMIN SCRIPT -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadProducts
+);
+
+
+// =========================
+// LOAD PRODUCTS FROM SUPABASE
+// =========================
+
+async function loadProducts() {
+
+    const tableBody =
+        document.getElementById(
+            "productsTableBody"
+        );
+
+
+    console.log(
+        "ÉLORA: Loading products from Supabase..."
+    );
+
+
+    const {
+        data: products,
+        error
+    } = await supabaseClient
+        .from("elora_products")
+        .select("*")
+        .order(
+            "created_at",
+            {
+                ascending: false
+            }
+        );
+
+
+    if (error) {
+
+        console.error(
+            "ÉLORA Products Error:",
+            error
+        );
+
+
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="5">
+                    Unable to load products.
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+
+    console.log(
+        "ÉLORA Products Loaded:",
+        products
+    );
+
+
+    if (
+        !products ||
+        products.length === 0
+    ) {
+
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="5">
+                    No products yet.
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+
+    renderProducts(products);
+
+}
+
+
+// =========================
+// RENDER PRODUCTS
+// =========================
+
+function renderProducts(products) {
+
+    const tableBody =
+        document.getElementById(
+            "productsTableBody"
+        );
+
+
+    tableBody.innerHTML =
+        products.map(product => `
+
+            <tr>
+
+                <td>
+
+                    <strong>
+                        ${product.name || "-"}
+                    </strong>
+
+                </td>
+
+
+                <td>
+                    ${product.category || "-"}
+                </td>
+
+
+                <td>
+                    ${product.description || "-"}
+                </td>
+
+
+                <td>
+                    $${Number(
+                        product.price || 0
+                    ).toFixed(2)}
+                </td>
+
+
+                <td>
+
+    <button
+        type="button"
+        class="view-order-button"
+        onclick="editProduct('${product.id}')"
+    >
+        Edit
+    </button>
+
+    <button
+        type="button"
+        class="view-order-button"
+        onclick="deleteProduct('${product.id}')"
+    >
+        Delete
+    </button>
+
+</td>
+
+            </tr>
+
+        `).join("");
+
+}
+
+
+// =========================
+// VIEW PRODUCT
+// =========================
+
+async function viewProduct(productId) {
+
+    console.log(
+        "ÉLORA VIEW PRODUCT:",
+        productId
+    );
+
+
+    const {
+        data: product,
+        error
+    } = await supabaseClient
+        .from("elora_products")
+        .select("*")
+        .eq(
+            "id",
+            productId
+        )
+        .single();
+
+
+    if (error || !product) {
+
+        console.error(
+            "ÉLORA Product Error:",
+            error
+        );
+
+
+        alert(
+            "Unable to load product details."
+        );
+
+        return;
+    }
+
+
+    alert(
+        "Product: " +
+        product.name +
+        "\n\n" +
+        "Category: " +
+        (product.category || "-") +
+        "\n" +
+        "Description: " +
+        (product.description || "-") +
+        "\n" +
+        "Price: $" +
+        Number(
+            product.price || 0
+        ).toFixed(2) +
+        "\n" +
+        "Stock: " +
+        Number(
+            product.stock || 0
+        )
+    );
+
+}
+// =========================
+// ADD PRODUCT MODAL
+// =========================
+
+const addProductButton =
+    document.getElementById(
+        "addProductButton"
+    );
+
+const productModal =
+    document.getElementById(
+        "productModal"
+    );
+
+const closeProductModal =
+    document.getElementById(
+        "closeProductModal"
+    );
+
+
+if (
+    addProductButton &&
+    productModal
+) {
+
+    addProductButton.addEventListener(
+        "click",
+        () => {
+
+            productModal.style.display =
+                "flex";
+
+        }
+    );
+
+}
+
+
+if (
+    closeProductModal &&
+    productModal
+) {
+
+    closeProductModal.addEventListener(
+        "click",
+        () => {
+
+            productModal.style.display =
+                "none";
+
+        }
+    );
+
+
+    productModal.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                event.target ===
+                productModal
+            ) {
+
+                productModal.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
+// =========================
+// SAVE NEW PRODUCT
+// =========================
+
+const addProductForm =
+    document.getElementById(
+        "addProductForm"
+    );
+
+
+if (addProductForm) {
+
+    addProductForm.addEventListener(
+        "submit",
+        async (event) => {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById(
+                    "productName"
+                ).value.trim();
+
+
+            const category =
+                document.getElementById(
+                    "productCategory"
+                ).value.trim();
+
+
+            const price =
+                Number(
+                    document.getElementById(
+                        "productPrice"
+                    ).value
+                );
+
+
+            const stock =
+                Number(
+                    document.getElementById(
+                        "productStock"
+                    ).value
+                );
+
+
+            const description =
+                document.getElementById(
+                    "productDescription"
+                ).value.trim();
+
+
+            const image =
+                document.getElementById(
+                    "productImage"
+                ).value.trim();
+
+
+            // =========================
+            // CREATE PRODUCT ID
+            // =========================
+
+            const productId =
+                "elora-" +
+                name
+                    .toLowerCase()
+                    .replace(
+                        /[^a-z0-9]+/g,
+                        "-"
+                    )
+                    .replace(
+                        /^-|-$/g,
+                        ""
+                    );
+
+
+            console.log(
+                "ÉLORA: Saving product...",
+                productId
+            );
+
+
+            // =========================
+            // INSERT INTO SUPABASE
+            // =========================
+
+            const {
+                data,
+                error
+            } = await supabaseClient
+                .from("elora_products")
+                .insert([
+                    {
+                        id: productId,
+                        name: name,
+                        category: category,
+                        description: description,
+                        price: price,
+                        image: image,
+                        stock: stock
+                    }
+                ])
+                .select();
+
+
+            if (error) {
+
+                console.error(
+                    "ÉLORA Product Insert Error:",
+                    error
+                );
+
+
+                alert(
+                    "Unable to save product."
+                );
+
+                return;
+            }
+
+
+            console.log(
+                "ÉLORA Product Saved:",
+                data
+            );
+
+
+            alert(
+                "Product added successfully."
+            );
+
+
+            // =========================
+            // RESET FORM
+            // =========================
+
+            addProductForm.reset();
+
+
+            // =========================
+            // CLOSE MODAL
+            // =========================
+
+            productModal.style.display =
+                "none";
+
+
+            // =========================
+            // RELOAD PRODUCTS
+            // =========================
+
+            loadProducts();
+
+        }
+    );
+
+}
+// =========================
+// EDIT PRODUCT
+// =========================
+
+async function editProduct(productId) {
+
+    console.log(
+        "ÉLORA EDIT PRODUCT:",
+        productId
+    );
+
+
+    const {
+        data: product,
+        error
+    } = await supabaseClient
+        .from("elora_products")
+        .select("*")
+        .eq("id", productId)
+        .single();
+
+
+    if (error || !product) {
+
+        console.error(
+            "ÉLORA Edit Product Error:",
+            error
+        );
+
+        alert(
+            "Unable to load product."
+        );
+
+        return;
+    }
+
+
+    // =========================
+    // GET EDIT MODAL
+    // =========================
+
+    const modal =
+        document.getElementById(
+            "editProductModal"
+        );
+
+
+    if (!modal) {
+
+        console.error(
+            "ÉLORA: Edit modal not found."
+        );
+
+        return;
+    }
+
+
+    // =========================
+    // FILL FORM
+    // =========================
+
+    document.getElementById(
+        "editProductId"
+    ).value =
+        product.id;
+
+
+    document.getElementById(
+        "editProductName"
+    ).value =
+        product.name || "";
+
+
+    document.getElementById(
+        "editProductCategory"
+    ).value =
+        product.category || "";
+
+
+    document.getElementById(
+        "editProductPrice"
+    ).value =
+        product.price || 0;
+
+
+    document.getElementById(
+        "editProductStock"
+    ).value =
+        product.stock || 0;
+
+
+    document.getElementById(
+        "editProductDescription"
+    ).value =
+        product.description || "";
+
+
+    document.getElementById(
+        "editProductImage"
+    ).value =
+        product.image || "";
+
+
+    // =========================
+    // SHOW MODAL
+    // =========================
+
+    modal.style.display =
+        "flex";
+
+}
+// =========================
+// SAVE EDITED PRODUCT
+// =========================
+
+const editProductForm =
+    document.getElementById(
+        "editProductForm"
+    );
+
+
+if (editProductForm) {
+
+    editProductForm.addEventListener(
+        "submit",
+        async (event) => {
+
+            event.preventDefault();
+
+
+            const productId =
+                document.getElementById(
+                    "editProductId"
+                ).value;
+
+
+            const name =
+                document.getElementById(
+                    "editProductName"
+                ).value.trim();
+
+
+            const category =
+                document.getElementById(
+                    "editProductCategory"
+                ).value.trim();
+
+
+            const price =
+                Number(
+                    document.getElementById(
+                        "editProductPrice"
+                    ).value
+                );
+
+
+            const stock =
+                Number(
+                    document.getElementById(
+                        "editProductStock"
+                    ).value
+                );
+
+
+            const description =
+                document.getElementById(
+                    "editProductDescription"
+                ).value.trim();
+
+
+            const image =
+                document.getElementById(
+                    "editProductImage"
+                ).value.trim();
+
+
+            console.log(
+                "ÉLORA: Updating product...",
+                productId
+            );
+
+
+            const {
+                error
+            } = await supabaseClient
+                .from("elora_products")
+                .update({
+
+                    name: name,
+                    category: category,
+                    description: description,
+                    price: price,
+                    stock: stock,
+                    image: image
+
+                })
+                .eq(
+                    "id",
+                    productId
+                );
+
+
+            if (error) {
+
+                console.error(
+                    "ÉLORA Product Update Error:",
+                    error
+                );
+
+
+                alert(
+                    "Unable to update product."
+                );
+
+                return;
+            }
+
+
+            console.log(
+                "ÉLORA Product Updated:",
+                productId
+            );
+
+
+            alert(
+                "Product updated successfully."
+            );
+
+
+            editProductForm.reset();
+
+
+            const editModal =
+                document.getElementById(
+                    "editProductModal"
+                );
+
+
+            editModal.style.display =
+                "none";
+
+
+            loadProducts();
+
+        }
+    );
+
+}
+// =========================
+// DELETE PRODUCT
+// =========================
+
+async function deleteProduct(productId) {
+
+    console.log(
+        "ÉLORA DELETE PRODUCT:",
+        productId
+    );
+
+
+    // =========================
+    // GET PRODUCT FIRST
+    // =========================
+
+    const {
+        data: product,
+        error: fetchError
+    } = await supabaseClient
+        .from("elora_products")
+        .select("name")
+        .eq("id", productId)
+        .single();
+
+
+    if (fetchError || !product) {
+
+        console.error(
+            "ÉLORA Delete Fetch Error:",
+            fetchError
+        );
+
+        alert(
+            "Unable to find product."
+        );
+
+        return;
+    }
+
+
+    // =========================
+    // CONFIRM DELETE
+    // =========================
+
+    const confirmed =
+        confirm(
+            `Are you sure you want to delete "${product.name}"?`
+        );
+
+
+    if (!confirmed) {
+
+        console.log(
+            "ÉLORA: Delete cancelled."
+        );
+
+        return;
+    }
+
+
+    // =========================
+    // DELETE FROM SUPABASE
+    // =========================
+
+    const {
+        error: deleteError
+    } = await supabaseClient
+        .from("elora_products")
+        .delete()
+        .eq(
+            "id",
+            productId
+        );
+
+
+    if (deleteError) {
+
+        console.error(
+            "ÉLORA Product Delete Error:",
+            deleteError
+        );
+
+        alert(
+            "Unable to delete product."
+        );
+
+        return;
+    }
+
+
+    console.log(
+        "ÉLORA Product Deleted:",
+        productId
+    );
+
+
+    alert(
+        "Product deleted successfully."
+    );
+
+
+    // =========================
+    // RELOAD PRODUCTS
+    // =========================
+
+    loadProducts();
+
+}
+</script>
+
+
+</body>
+
+</html>

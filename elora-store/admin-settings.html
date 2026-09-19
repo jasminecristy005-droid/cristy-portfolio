@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ÉLORA Admin | Settings</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="admin-body">
+
+
+    <!-- ADMIN HEADER -->
+
+    <header class="admin-header">
+
+        <a href="admin.html" class="admin-logo">
+            ÉLORA
+        </a>
+
+        <div class="admin-header-right">
+
+            <span>
+                Store Settings
+            </span>
+
+            <a href="admin.html">
+                Dashboard
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ADMIN LAYOUT -->
+
+    <div class="admin-layout">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="admin-sidebar">
+
+            <nav>
+
+                <a href="admin.html" class="admin-nav">
+                    Dashboard
+                </a>
+
+                <a href="admin.html#orders" class="admin-nav">
+    Orders
+</a>
+
+                <a href="admin-products.html" class="admin-nav">
+                    Products
+                </a>
+
+                <a href="admin-customers.html" class="admin-nav">
+                    Customers
+                </a>
+
+                <a href="admin-settings.html"
+                   class="admin-nav active">
+                    Settings
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="admin-main">
+
+
+            <div class="admin-title">
+
+                <p class="eyebrow">
+                    ÉLORA ADMINISTRATION
+                </p>
+
+                <h1>
+                    Settings
+                </h1>
+
+            </div>
+
+
+
+            <!-- STORE SETTINGS -->
+
+            <section class="admin-orders">
+
+
+                <div class="admin-section-heading">
+
+                    <h2>
+                        Store Information
+                    </h2>
+
+                </div>
+
+
+                <div class="form-section">
+
+                    <div class="form-group">
+
+                        <label for="storeName">
+                            Store Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="storeName"
+                            value="ÉLORA"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="storeEmail">
+                            Store Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="storeEmail"
+                            value="jasminecristy005@gmail.com"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="currency">
+                            Currency
+                        </label>
+
+                        <input
+                            type="text"
+                            id="currency"
+                            value="USD ($)"
+                        >
+
+                    </div>
+<div class="form-group">
+
+    <label for="storeStatus">
+        Store Status
+    </label>
+
+    <select id="storeStatus">
+
+        <option value="Open">
+            Open
+        </option>
+
+        <option value="Closed">
+            Closed
+        </option>
+
+    </select>
+
+</div>
+
+                    <button
+                        type="button"
+                        class="place-order-button"
+                        onclick="saveSettings()"
+                    >
+                        SAVE SETTINGS
+                    </button>
+
+                    <p
+                        id="settingsMessage"
+                        style="
+                            margin-top:20px;
+                            color:#66615b;
+                            font-size:13px;
+                        "
+                    ></p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ORDER SETTINGS -->
+
+            <section
+                class="admin-orders"
+                style="margin-top:30px;"
+            >
+
+                <div class="admin-section-heading">
+
+                    <h2>
+                        Order Workflow
+                    </h2>
+
+                </div>
+
+
+                <div class="form-section">
+
+                    <p style="
+                        margin-bottom:20px;
+                        color:#77716a;
+                        font-size:13px;
+                        line-height:1.8;
+                    ">
+                        Orders move through the following
+                        workflow:
+                    </p>
+
+
+                    <div style="
+                        display:flex;
+                        flex-wrap:wrap;
+                        gap:10px;
+                    ">
+
+                        <span class="category active">
+                            New Order
+                        </span>
+
+                        <span class="category">
+                            Processing
+                        </span>
+
+                        <span class="category">
+                            Ready
+                        </span>
+
+                        <span class="category">
+                            Completed
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ADMIN ACCOUNT -->
+
+            <section
+                class="admin-orders"
+                style="margin-top:30px;"
+            >
+
+                <div class="admin-section-heading">
+
+                    <h2>
+                        Admin Account
+                    </h2>
+
+                </div>
+
+
+                <div class="form-section">
+
+                    <div class="form-group">
+
+                        <label>
+                            Account
+                        </label>
+
+                        <input
+                            type="text"
+                            value="Admin"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <p style="
+                        color:#77716a;
+                        font-size:13px;
+                        line-height:1.7;
+                    ">
+                        Your administrator account is
+                        managed through Supabase
+                        Authentication.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase-config.js"></script>
+
+<script>
+
+// =========================
+// ÉLORA SETTINGS
+// =========================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadSettings
+);
+
+
+// =========================
+// LOAD SETTINGS
+// =========================
+
+async function loadSettings() {
+
+    console.log(
+        "ÉLORA: Loading settings..."
+    );
+
+
+    const {
+        data: settings,
+        error
+    } = await supabaseClient
+        .from("elora_settings")
+        .select("*")
+        .limit(1)
+        .single();
+
+
+    if (error) {
+
+        console.error(
+            "ÉLORA Settings Load Error:",
+            error
+        );
+
+        return;
+    }
+
+
+    console.log(
+        "ÉLORA Settings Loaded:",
+        settings
+    );
+
+
+    document.getElementById(
+        "storeName"
+    ).value =
+        settings.store_name || "";
+
+
+    document.getElementById(
+        "storeEmail"
+    ).value =
+        settings.store_email || "";
+
+
+    document.getElementById(
+        "currency"
+    ).value =
+        settings.currency || "";
+document.getElementById(
+    "storeStatus"
+).value =
+    settings.store_status || "Open";
+}
+
+
+// =========================
+// SAVE SETTINGS
+// =========================
+
+async function saveSettings() {
+
+    const storeName =
+        document.getElementById(
+            "storeName"
+        ).value.trim();
+
+
+    const storeEmail =
+        document.getElementById(
+            "storeEmail"
+        ).value.trim();
+
+
+    const currency =
+        document.getElementById(
+            "currency"
+        ).value.trim();
+
+const storeStatus =
+    document.getElementById(
+        "storeStatus"
+    ).value;
+
+    console.log(
+        "ÉLORA: Saving settings..."
+    );
+
+
+    const {
+        error
+    } = await supabaseClient
+        .from("elora_settings")
+    .update({
+
+    store_name:
+        storeName,
+
+    store_email:
+        storeEmail,
+
+    currency:
+        currency,
+
+    store_status:
+        storeStatus,
+
+    updated_at:
+        new Date().toISOString()
+
+})
+        .eq(
+            "id",
+            1
+        );
+
+
+    if (error) {
+
+        console.error(
+            "ÉLORA Settings Save Error:",
+            error
+        );
+
+
+        document.getElementById(
+            "settingsMessage"
+        ).textContent =
+            "Unable to save settings.";
+
+        return;
+    }
+
+
+    console.log(
+        "ÉLORA: Settings saved."
+    );
+
+
+    document.getElementById(
+        "settingsMessage"
+    ).textContent =
+        "Settings saved successfully.";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

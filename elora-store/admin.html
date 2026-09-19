@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ÉLORA Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="admin-body">
+
+    <!-- ADMIN HEADER -->
+<header class="admin-header">
+
+    <a href="index.html" class="admin-logo">
+        ÉLORA
+    </a>
+
+    <div class="admin-header-right">
+
+        <span>
+            ÉLORA ADMIN
+        </span>
+
+        <a href="index.html">
+            View Store
+        </a>
+
+        <a href="#" id="logoutButton">
+            Logout
+        </a>
+
+    </div>
+
+</header>
+
+
+    <!-- ADMIN LAYOUT -->
+
+    <div class="admin-layout">
+
+<!-- SIDEBAR -->
+
+<!-- SIDEBAR -->
+
+<aside class="admin-sidebar">
+
+    <nav>
+
+        <a href="admin.html"
+           class="admin-nav active"
+           id="dashboardNav">
+            Dashboard
+        </a>
+
+        <a href="admin.html#orders"
+           class="admin-nav"
+           id="ordersNav">
+            Orders
+        </a>
+
+        <a href="admin-products.html"
+           class="admin-nav">
+            Products
+        </a>
+
+        <a href="admin-customers.html"
+           class="admin-nav">
+            Customers
+        </a>
+
+        <a href="admin-settings.html"
+           class="admin-nav">
+            Settings
+        </a>
+
+    </nav>
+
+</aside>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="admin-main">
+
+            <div class="admin-title">
+
+                <div>
+
+                    <p class="eyebrow">
+                        ÉLORA ADMIN
+                    </p>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <section class="admin-stats">
+
+                <div class="admin-stat-card">
+
+                    <span>
+                        Total Orders
+                    </span>
+
+                    <strong id="totalOrders">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="admin-stat-card">
+
+                    <span>
+                        New Orders
+                    </span>
+
+                    <strong id="newOrders">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="admin-stat-card">
+
+                    <span>
+                        Processing
+                    </span>
+
+                    <strong id="processingOrders">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="admin-stat-card">
+
+                    <span>
+                        Revenue
+                    </span>
+
+                    <strong id="totalRevenue">
+                        $0
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- ORDERS -->
+
+            <section class="admin-orders" id="orders">
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            ORDER MANAGEMENT
+                        </p>
+
+                        <h2>
+                            Recent Orders
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="orders-table-wrapper">
+
+                    <table class="orders-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+    Order
+</th>
+
+<th>
+    Date & Time
+</th>
+
+<th>
+    Customer
+</th>
+
+<th>
+    Total
+</th>
+
+                                <th>
+                                    Payment
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="ordersTableBody">
+
+                            <tr>
+
+                                <td colspan="7">
+                                    No orders yet.
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+            <!-- =========================
+     ORDER DETAILS MODAL
+========================= -->
+
+<div
+    id="orderModal"
+    class="order-modal"
+    style="display: none;"
+>
+
+    <div class="order-modal-content">
+
+        <button
+            type="button"
+            id="closeOrderModal"
+            class="order-modal-close"
+        >
+            ×
+        </button>
+
+        <p class="eyebrow">
+            ORDER DETAILS
+        </p>
+
+        <h2 id="modalOrderId">
+            -
+        </h2>
+
+        <div id="orderModalBody"></div>
+
+    </div>
+
+</div>
+
+        </main>
+
+    </div>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase-config.js"></script>
+
+<script src="js/admin.js"></script>
+<script>
+const dashboardNav = document.getElementById("dashboardNav");
+const ordersNav = document.getElementById("ordersNav");
+
+function updateActiveNav() {
+    if (window.location.hash === "#orders") {
+        dashboardNav.classList.remove("active");
+        ordersNav.classList.add("active");
+    } else {
+        ordersNav.classList.remove("active");
+        dashboardNav.classList.add("active");
+    }
+}
+
+updateActiveNav();
+
+window.addEventListener("hashchange", updateActiveNav);
+</script>
+</body>
+
+</html>

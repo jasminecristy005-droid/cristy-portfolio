@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Track Order | ÉLORA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                ÉLORA
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="shop.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li>
+                    <a href="cart.html">
+                        Bag
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- TRACK ORDER -->
+
+    <main>
+
+        <section class="tracking-page">
+
+            <div class="tracking-card">
+
+                <p class="eyebrow">
+                    ÉLORA ORDER SERVICE
+                </p>
+
+                <h1>
+                    Track Your Order
+                </h1>
+
+                <p class="tracking-intro">
+                    Enter your order number to check
+                    the current status of your order.
+                </p>
+
+
+                <form id="trackingForm">
+
+                    <label for="orderNumber">
+                        Order Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="orderNumber"
+                        placeholder="Example: EL-363883"
+                        required
+                    >
+
+                    <button type="submit">
+                        Track Order
+                    </button>
+
+                </form>
+
+
+                <!-- RESULT -->
+
+                <div
+                    id="trackingResult"
+                    class="tracking-result"
+                >
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase-config.js"></script>
+
+<script src="js/order-tracking.js"></script>
+</body>
+
+</html>

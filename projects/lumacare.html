@@ -10,11 +10,11 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>ÉLORA — Case Study | Cristy Develleres</title>
+    <title>LumaCare — Case Study | Cristy Develleres</title>
 
     <meta
         name="description"
-        content="ÉLORA — A luxury e-commerce storefront and order management system designed and developed by Cristy Develleres."
+        content="LumaCare — A home services business management system designed and developed by Cristy Develleres."
     >
 
     <link
@@ -25,7 +25,7 @@
     <style>
 
         /* =====================================================
-           ÉLORA CASE STUDY
+           LUMACARE CASE STUDY
         ===================================================== */
 
         .case-study {
@@ -38,10 +38,10 @@
         ===================================================== */
 
         .case-header {
-            max-width: 1440px;
-            margin: auto;
-            padding: 135px 5vw 90px;
-        }
+    max-width: 1440px;
+    margin: auto;
+    padding: 95px 5vw 65px;
+}
 
         .case-back {
             display: inline-flex;
@@ -67,7 +67,7 @@
 
 
         .case-number {
-            margin-top: 85px;
+            margin-top: 55px;
 
             font-size: 9px;
             font-weight: 700;
@@ -107,12 +107,12 @@
 
 
         .case-intro {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
-            gap: 60px;
+    gap: 50px;
 
-            margin-top: 80px;
+    margin-top: 55px;
 
             padding-top: 30px;
 
@@ -155,9 +155,9 @@
             background:
                 linear-gradient(
                     120deg,
-                    #24231f 0%,
-                    #47433b 45%,
-                    #8b806f 100%
+                    #092f2d 0%,
+                    #0f766e 48%,
+                    #5fa89f 100%
                 );
         }
 
@@ -170,13 +170,17 @@
             background:
                 radial-gradient(
                     circle at 50% 45%,
-                    rgba(255,255,255,0.14),
-                    transparent 35%
+                    rgba(255,255,255,0.16),
+                    transparent 38%
                 );
         }
 
 
-        .elora-mark {
+        /* =====================================================
+           LUMACARE HERO MARK
+        ===================================================== */
+
+        .lumacare-mark {
             position: relative;
             z-index: 2;
 
@@ -185,7 +189,7 @@
             color: #f3f0e9;
         }
 
-        .elora-mark small {
+        .lumacare-mark small {
             display: block;
 
             margin-bottom: 20px;
@@ -195,8 +199,8 @@
             letter-spacing: 0.3em;
         }
 
-        .elora-mark h2 {
-            font-size: clamp(70px, 12vw, 170px);
+        .lumacare-mark h2 {
+            font-size: clamp(65px, 11vw, 155px);
 
             font-family:
                 Georgia,
@@ -210,18 +214,71 @@
             letter-spacing: -0.07em;
         }
 
+        .lumacare-mark span {
+            display: block;
+
+            margin-top: 25px;
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 0.22em;
+        }
+
+
+        /* =====================================================
+           DASHBOARD VISUAL
+        ===================================================== */
+
+        .lumacare-dashboard {
+            position: absolute;
+
+            z-index: 1;
+
+            width: 58%;
+            max-width: 760px;
+
+            right: 7%;
+            bottom: -12%;
+
+            padding: 12px;
+
+            background: rgba(255,255,255,0.12);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.25);
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.22);
+
+            transform:
+                perspective(1200px)
+                rotateY(-8deg)
+                rotateX(3deg);
+
+            opacity: 0.92;
+        }
+
+        .lumacare-dashboard img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+        }
+
 
         /* =====================================================
            CASE DETAILS
         ===================================================== */
 
         .case-details {
-            max-width: 1440px;
+    max-width: 1440px;
 
-            margin: auto;
+    margin: auto;
 
-            padding: 140px 5vw;
-        }
+    padding: 105px 5vw;
+}
 
         .case-details-grid {
             display: grid;
@@ -293,14 +350,17 @@
             grid-template-columns:
                 repeat(3, 1fr);
 
-            border-top: 1px solid rgba(23,23,20,0.18);
+            border-top:
+                1px solid
+                rgba(23,23,20,0.18);
         }
 
         .case-meta-item {
             padding: 25px 25px 25px 0;
 
             border-right:
-                1px solid rgba(23,23,20,0.18);
+                1px solid
+                rgba(23,23,20,0.18);
         }
 
         .case-meta-item:not(:first-child) {
@@ -410,20 +470,17 @@
 
 
         /* =====================================================
-           LIVE PROJECT
+           CTA
         ===================================================== */
 
         .case-cta {
-            max-width: 1440px;
-
-            margin: auto;
-
-            padding:
-                150px
-                5vw
-                170px;
-        }
-
+    max-width: 1440px;
+    margin: auto;
+    padding:
+        100px
+        5vw
+        120px;
+}
         .case-cta-content {
             max-width: 1000px;
 
@@ -459,7 +516,7 @@
         .live-button {
             display: inline-flex;
 
-            margin-top: 65px;
+            margin-top: 45px;
 
             padding: 17px 24px;
 
@@ -510,6 +567,11 @@
                 min-height: 520px;
             }
 
+            .lumacare-dashboard {
+                width: 70%;
+                right: 3%;
+            }
+
             .case-details-grid {
                 grid-template-columns: 1fr;
                 gap: 60px;
@@ -558,6 +620,16 @@
                 min-height: 430px;
             }
 
+            .lumacare-mark h2 {
+                font-size: 70px;
+            }
+
+            .lumacare-dashboard {
+                width: 88%;
+                right: 6%;
+                bottom: -8%;
+            }
+
             .case-details {
                 padding-top: 100px;
                 padding-bottom: 100px;
@@ -574,7 +646,9 @@
             .case-meta-item,
             .case-meta-item:not(:first-child) {
                 padding: 22px 0;
+
                 border-right: none;
+
                 border-bottom:
                     1px solid
                     rgba(23,23,20,0.18);
@@ -585,12 +659,12 @@
             }
 
             .case-features {
-                padding-top: 100px;
-                padding-bottom: 110px;
-            }
+    padding-top: 70px;
+    padding-bottom: 80px;
+}
 
             .feature-list {
-                margin-top: 65px;
+                margin-top: 45px;
             }
 
             .feature {
@@ -680,7 +754,7 @@
 
 
         <!-- =================================================
-             HEADER
+             CASE HEADER
         ================================================== -->
 
         <section class="case-header">
@@ -694,30 +768,30 @@
 
 
             <p class="case-number">
-                01 / E-COMMERCE CASE STUDY
+                01 / BUSINESS MANAGEMENT SYSTEM CASE STUDY
             </p>
 
 
             <h1>
-                ÉLORA
-                <em>Luxury Commerce.</em>
+                LumaCare
+                <em>Home Services.</em>
             </h1>
 
 
             <div class="case-intro">
 
                 <p>
-                    A premium e-commerce experience designed
-                    to bring together visual presentation,
-                    product discovery, and real business
-                    operations in one digital system.
+                    A responsive home services business system
+                    designed to connect customer bookings,
+                    service information, and day-to-day
+                    operations in one digital workflow.
                 </p>
 
                 <p>
-                    I built the storefront and connected it
-                    to an operational workflow that allows
-                    products, orders, customers, and statuses
-                    to be managed digitally.
+                    I built the customer-facing experience and
+                    operational system behind it, including
+                    bookings, dashboards, CRM activity,
+                    customer records, and lead management.
                 </p>
 
             </div>
@@ -728,50 +802,41 @@
         <!-- =================================================
              HERO VISUAL
         ================================================== -->
-<section class="case-visual">
 
-    <div class="case-visual-inner elora-case-hero">
+        <section class="case-visual">
 
-        <div class="elora-product product-left">
-            <img
-                src="../elora-store/assets/images/noir-bag.jpg"
-                alt="ÉLORA Noir Bag"
-            >
-        </div>
+            <div class="case-visual-inner">
 
-        <div class="elora-product product-center">
-            <img
-                src="../elora-store/assets/images/signature-bag.png"
-                alt="ÉLORA Signature Bag"
-            >
-        </div>
+                <div class="lumacare-mark">
 
-        <div class="elora-product product-right">
-            <img
-                src="../elora-store/assets/images/timepiece.png"
-                alt="ÉLORA Timepiece"
-            >
-        </div>
+                    <small>
+                        LUMACARE / BUSINESS MANAGEMENT SYSTEM
+                    </small>
 
-        <div class="elora-case-title">
+                    <h2>
+                        LumaCare
+                    </h2>
 
-            <span>
-                ÉLORA / E-COMMERCE SYSTEM
-            </span>
+                    <span>
+                        HOME SERVICES
+                    </span>
 
-            <h2>
-                ÉLORA
-            </h2>
+                </div>
 
-            <small>
-                LUXURY COMMERCE
-            </small>
 
-        </div>
+                <div class="lumacare-dashboard">
 
-    </div>
+                    <img
+                        src="../assets/lumacare.png"
+                        alt="LumaCare Home Services dashboard and website"
+                    >
 
-</section>    
+                </div>
+
+            </div>
+
+        </section>
+
 
         <!-- =================================================
              PROJECT OVERVIEW
@@ -794,19 +859,29 @@
                 <div class="case-content">
 
                     <h2>
-                        More than a storefront.
-                        <em>A working system.</em>
+                        More than a website.
+                        <em>A working business system.</em>
                     </h2>
 
                     <p>
-                        ÉLORA was developed as a complete
-                        e-commerce concept rather than simply
-                        a visual mockup. The project combines
-                        a responsive customer-facing storefront
-                        with an administrative workflow for
-                        managing products, orders, and customer
-                        information.
+                        LumaCare was developed as a complete
+                        digital workflow for a home services
+                        business. Instead of treating the
+                        website as only a customer-facing page,
+                        the project connects the customer
+                        experience with the operational side
+                        of the business.
                     </p>
+
+                    <p>
+                        Customers can request services and
+                        manage their bookings, while
+                        administrators can manage bookings,
+                        customers, leads, schedules, notes,
+                        and CRM activity from a centralized
+                        workspace.
+                    </p>
+
 
                     <div class="case-meta">
 
@@ -880,14 +955,14 @@
                         </span>
 
                         <h3>
-                            E-commerce Storefront
+                            Online Booking
                         </h3>
 
                         <p>
-                            Responsive product browsing,
-                            product presentation, shopping
-                            interactions, and a customer-focused
-                            purchasing experience.
+                            Customers can select a service,
+                            provide booking details, choose
+                            requested dates and times, and
+                            submit service requests online.
                         </p>
 
                     </div>
@@ -900,13 +975,14 @@
                         </span>
 
                         <h3>
-                            Product Management
+                            Customer Dashboard
                         </h3>
 
                         <p>
-                            Product records and storefront
-                            content organized through a
-                            structured management workflow.
+                            Customers can view their account
+                            information, bookings, service
+                            details, and booking activity
+                            from one dashboard.
                         </p>
 
                     </div>
@@ -919,13 +995,14 @@
                         </span>
 
                         <h3>
-                            Order Management
+                            Admin Dashboard
                         </h3>
 
                         <p>
-                            Order information can be captured,
-                            stored, monitored, and moved through
-                            different operational statuses.
+                            Administrators have a centralized
+                            workspace for managing customers,
+                            bookings, leads, schedules, and
+                            operational information.
                         </p>
 
                     </div>
@@ -938,13 +1015,14 @@
                         </span>
 
                         <h3>
-                            Customer Data
+                            Booking Management
                         </h3>
 
                         <p>
-                            Customer information is organized
-                            alongside order records to support
-                            smoother day-to-day operations.
+                            Booking status, schedules, service
+                            information, customer details,
+                            and internal notes can be managed
+                            within the system.
                         </p>
 
                     </div>
@@ -957,13 +1035,14 @@
                         </span>
 
                         <h3>
-                            Supabase Integration
+                            CRM Activity
                         </h3>
 
                         <p>
-                            A connected database layer supports
-                            persistent product, customer, and
-                            order data for the application.
+                            Customer activity, status changes,
+                            scheduling updates, booking events,
+                            and internal notes can be tracked
+                            through the CRM workflow.
                         </p>
 
                     </div>
@@ -976,13 +1055,14 @@
                         </span>
 
                         <h3>
-                            Admin Dashboard
+                            Lead Management
                         </h3>
 
                         <p>
-                            A dedicated administrative interface
-                            provides a central place to manage
-                            operational information.
+                            Leads can be organized by status,
+                            updated with notes, converted into
+                            customers, and connected to booking
+                            workflows.
                         </p>
 
                     </div>
@@ -992,6 +1072,228 @@
             </div>
 
         </section>
+        <!-- =================================================
+     SCREENSHOT PREVIEW
+================================================== -->
+
+<section class="case-details case-screenshots">
+
+    <div class="case-details-grid">
+
+        <div>
+
+            <span class="case-label">
+                SYSTEM PREVIEW
+            </span>
+
+        </div>
+
+        <div class="case-content">
+
+            <h2>
+                Built for the
+                <em>day-to-day.</em>
+            </h2>
+
+            <p>
+                A closer look at the customer-facing
+                experience and operational tools built
+                for LumaCare Home Services.
+            </p>
+
+            <div class="screenshot-grid">
+
+                <div class="screenshot-item screenshot-large">
+                    <div class="screenshot-frame">
+                        <img
+                            src="../assets/lumacare-homepage.png"
+                            alt="LumaCare Home Services homepage"
+                        >
+                    </div>
+
+                    <span>01 / HOMEPAGE</span>
+                </div>
+
+                <div class="screenshot-item">
+                    <div class="screenshot-frame">
+                        <img
+                            src="../assets/customer-dashboard.png"
+                            alt="LumaCare customer dashboard"
+                        >
+                    </div>
+
+                    <span>02 / CUSTOMER DASHBOARD</span>
+                </div>
+
+                <div class="screenshot-item">
+                    <div class="screenshot-frame">
+                        <img
+                            src="../assets/lumacare-booking.png"
+                            alt="LumaCare booking interface"
+                        >
+                    </div>
+
+                    <span>03 / BOOKING</span>
+                </div>
+
+                <div class="screenshot-item">
+                    <div class="screenshot-frame">
+                        <img
+                            src="../assets/images/lumacare-admin-dashboard.png"
+                            alt="LumaCare admin dashboard"
+                        >
+                    </div>
+
+                    <span>04 / ADMIN DASHBOARD</span>
+                </div>
+
+                <div class="screenshot-item">
+                    <div class="screenshot-frame">
+                        <img
+                            src="../assets/images/lumacare-bookings.png"
+                            alt="LumaCare booking management"
+                        >
+                    </div>
+
+                    <span>05 / BOOKING MANAGEMENT</span>
+                </div>
+
+                <div class="screenshot-item">
+                    <div class="screenshot-frame">
+                        <img
+                            src="../assets/images/lumacare-crm.png"
+                            alt="LumaCare CRM and customer activity"
+                        >
+                    </div>
+
+                    <span>06 / CRM & CUSTOMER ACTIVITY</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =================================================
+     PROJECT WALKTHROUGH
+================================================== -->
+
+<section class="case-details case-walkthrough">
+
+    <div class="case-details-grid">
+
+        <div>
+
+            <span class="case-label">
+                PROJECT WALKTHROUGH
+            </span>
+
+        </div>
+
+
+        <div class="case-content">
+
+            <h2>
+                One workflow.
+                <em>Connected operations.</em>
+            </h2>
+
+            <p>
+                LumaCare connects the customer-facing
+                experience with the operational workflow
+                behind the business.
+            </p>
+
+            <div class="walkthrough-list">
+
+                <div class="walkthrough-item">
+
+                    <span>01</span>
+
+                    <div>
+                        <h3>
+                            Customer Experience
+                        </h3>
+
+                        <p>
+                            Customers can explore services,
+                            request a booking, manage their
+                            information, and view their
+                            booking activity.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="walkthrough-item">
+
+                    <span>02</span>
+
+                    <div>
+                        <h3>
+                            Admin Operations
+                        </h3>
+
+                        <p>
+                            Administrators can manage
+                            bookings, customers, schedules,
+                            and operational information
+                            from a centralized workspace.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="walkthrough-item">
+
+                    <span>03</span>
+
+                    <div>
+                        <h3>
+                            CRM Workflow
+                        </h3>
+
+                        <p>
+                            Leads, customer records, notes,
+                            status changes, and activity
+                            can be organized within the
+                            same workflow.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="walkthrough-item">
+
+                    <span>04</span>
+
+                    <div>
+                        <h3>
+                            Booking Management
+                        </h3>
+
+                        <p>
+                            Booking status, schedules,
+                            service details, and internal
+                            notes can be updated as the
+                            request moves through the system.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
         <!-- =================================================
@@ -1008,14 +1310,20 @@
 
                 <h2>
                     Experience
-                    <em>ÉLORA.</em>
+                    <em>LumaCare.</em>
                 </h2>
 
+                <!--
+                    LumaCare has not been deployed to GitHub yet.
+                    Keep this button as a placeholder for now.
+                -->
+
                 <a
-                    href="../elora-store/index.html"
+                    href="#"
                     class="live-button"
+                    onclick="return false;"
                 >
-                    View Live Project ↗
+                    Live Project Coming Soon ↗
                 </a>
 
             </div>

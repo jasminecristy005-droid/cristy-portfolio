@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ÉLORA | Track Order</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                ÉLORA
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="shop.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Collections
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="order-status.html">
+                        Track Order
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="nav-actions">
+
+                <a href="#" aria-label="Search">
+                    ⌕
+                </a>
+
+                <a href="cart.html" aria-label="Shopping bag">
+                    Bag
+                </a>
+
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- =========================
+         TRACKING PAGE
+    ========================== -->
+
+    <main class="tracking-page">
+
+        <section class="tracking-card">
+
+            <p class="eyebrow">
+                ÉLORA ORDER SERVICE
+            </p>
+
+            <h1>
+                Track Your Order
+            </h1>
+
+            <p class="tracking-intro">
+                Enter your order number below to view
+                the latest status of your ÉLORA order.
+            </p>
+
+
+            <!-- TRACKING FORM -->
+
+            <form id="trackingForm">
+
+                <label for="orderId">
+                    Order Number
+                </label>
+
+                <input
+                    type="text"
+                    id="orderId"
+                    name="orderId"
+                    placeholder="Example: EL-123456"
+                    required
+                >
+
+                <button type="submit">
+                    TRACK ORDER
+                </button>
+
+            </form>
+
+
+            <!-- RESULT -->
+
+            <div
+                id="trackingResult"
+                style="display: none;"
+            >
+
+                <div class="tracking-success">
+
+                    <p class="tracking-label">
+                        ORDER NUMBER
+                    </p>
+
+                    <h2 id="resultOrderId">
+                        -
+                    </h2>
+
+
+                    <div class="tracking-info">
+
+                        <div>
+                            <span>
+                                Customer
+                            </span>
+
+                            <strong id="resultCustomer">
+                                -
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Order Date
+                            </span>
+
+                            <strong id="resultDate">
+                                -
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Total
+                            </span>
+
+                            <strong id="resultTotal">
+                                -
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Status
+                            </span>
+
+                            <strong
+                                id="resultStatus"
+                                class="order-status"
+                            >
+                                -
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <!-- ORDER PROGRESS -->
+
+                    <div class="order-progress">
+
+                        <div
+                            class="progress-step"
+                            data-status="New Order"
+                        >
+                            <span>1</span>
+
+                            <p>
+                                New Order
+                            </p>
+                        </div>
+
+
+                        <div class="progress-line"></div>
+
+
+                        <div
+                            class="progress-step"
+                            data-status="Processing"
+                        >
+                            <span>2</span>
+
+                            <p>
+                                Processing
+                            </p>
+                        </div>
+
+
+                        <div class="progress-line"></div>
+
+
+                        <div
+                            class="progress-step"
+                            data-status="Ready"
+                        >
+                            <span>3</span>
+
+                            <p>
+                                Ready
+                            </p>
+                        </div>
+
+
+                        <div class="progress-line"></div>
+
+
+                        <div
+                            class="progress-step"
+                            data-status="Completed"
+                        >
+                            <span>4</span>
+
+                            <p>
+                                Completed
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ERROR -->
+
+            <div
+                id="trackingError"
+                class="tracking-error"
+                style="display: none;"
+            >
+
+                <strong>
+                    Order Not Found
+                </strong>
+
+                <p>
+                    Please check your order number
+                    and try again.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase-config.js"></script>
+
+
+    <!-- TRACKING SCRIPT -->
+
+    <script>
+
+        const trackingForm =
+            document.getElementById("trackingForm");
+
+        const trackingResult =
+            document.getElementById("trackingResult");
+
+        const trackingError =
+            document.getElementById("trackingError");
+
+
+        trackingForm.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+
+                const orderId =
+                    document
+                        .getElementById("orderId")
+                        .value
+                        .trim();
+
+
+                if (!orderId) {
+                    return;
+                }
+
+
+                trackingResult.style.display =
+                    "none";
+
+                trackingError.style.display =
+                    "none";
+
+
+                console.log(
+                    "ÉLORA: Tracking order:",
+                    orderId
+                );
+
+
+                const {
+                    data: order,
+                    error
+                } = await supabaseClient
+                    .from("elora_orders")
+                    .select("*")
+                    .eq("order_id", orderId)
+                    .maybeSingle();
+
+
+                if (error) {
+
+                    console.error(
+                        "ÉLORA tracking error:",
+                        error
+                    );
+
+                    trackingError.style.display =
+                        "block";
+
+                    return;
+                }
+
+
+                if (!order) {
+
+                    trackingError.style.display =
+                        "block";
+
+                    return;
+                }
+
+
+                console.log(
+                    "ÉLORA order found:",
+                    order
+                );
+
+
+                // =========================
+                // DISPLAY ORDER
+                // =========================
+
+                document
+                    .getElementById("resultOrderId")
+                    .textContent =
+                        order.order_id || "-";
+
+
+                document
+                    .getElementById("resultCustomer")
+                    .textContent =
+                        order.customer_name || "-";
+
+
+                document
+                    .getElementById("resultTotal")
+                    .textContent =
+                        "$" +
+                        Number(
+                            order.total || 0
+                        ).toFixed(2);
+
+
+                document
+                    .getElementById("resultStatus")
+                    .textContent =
+                        order.status || "New Order";
+
+
+                const orderDate =
+                    order.created_at
+                        ? new Date(
+                            order.created_at
+                        ).toLocaleString(
+                            "en-PH",
+                            {
+                                dateStyle: "medium",
+                                timeStyle: "short"
+                            }
+                        )
+                        : "-";
+
+
+                document
+                    .getElementById("resultDate")
+                    .textContent =
+                        orderDate;
+
+
+                // =========================
+                // UPDATE PROGRESS
+                // =========================
+
+                updateProgress(
+    order.status || "New Order"
+);
+
+
+// Start realtime tracking
+startRealtimeTracking(
+    order.order_id
+);
+
+
+trackingResult.style.display =
+    "block";
+
+            }
+        );
+
+
+        // =========================
+        // ORDER PROGRESS
+        // =========================
+
+        function updateProgress(status) {
+
+            const statuses = [
+                "New Order",
+                "Processing",
+                "Ready",
+                "Completed"
+            ];
+
+
+            const currentIndex =
+                statuses.indexOf(status);
+
+
+            const steps =
+                document.querySelectorAll(
+                    ".progress-step"
+                );
+
+
+            steps.forEach(
+                (step, index) => {
+
+                    if (index <= currentIndex) {
+
+                        step.classList.add(
+                            "active"
+                        );
+
+                    } else {
+
+                        step.classList.remove(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+        // =========================
+// ÉLORA REALTIME TRACKING
+// =========================
+
+let trackingChannel = null;
+
+
+// =========================
+// START REALTIME TRACKING
+// =========================
+
+function startRealtimeTracking(orderId) {
+
+    // Remove previous subscription
+    if (trackingChannel) {
+
+        supabaseClient.removeChannel(
+            trackingChannel
+        );
+
+        trackingChannel = null;
+    }
+
+
+    console.log(
+        "ÉLORA: Starting realtime tracking for:",
+        orderId
+    );
+
+
+    trackingChannel =
+        supabaseClient
+            .channel(
+                "elora-customer-order-" + orderId
+            )
+            .on(
+                "postgres_changes",
+                {
+                    event: "UPDATE",
+                    schema: "public",
+                    table: "elora_orders",
+                    filter:
+                        "order_id=eq." + orderId
+                },
+                (payload) => {
+
+                    console.log(
+                        "ÉLORA CUSTOMER REALTIME UPDATE:",
+                        payload
+                    );
+
+
+                    const updatedOrder =
+                        payload.new;
+
+
+                    // Update status
+                    document
+                        .getElementById(
+                            "resultStatus"
+                        )
+                        .textContent =
+                            updatedOrder.status ||
+                            "New Order";
+
+
+                    // Update progress
+                    updateProgress(
+                        updatedOrder.status ||
+                        "New Order"
+                    );
+
+
+                    console.log(
+                        "ÉLORA: Customer order status updated to:",
+                        updatedOrder.status
+                    );
+
+                }
+            )
+            .subscribe((status) => {
+
+                console.log(
+                    "ÉLORA TRACKING REALTIME STATUS:",
+                    status
+                );
+
+            });
+
+}
+
+    </script>
+
+</body>
+
+</html>

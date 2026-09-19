@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop | ÉLORA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">ÉLORA</a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#" aria-label="Search">⌕</a>
+                <a href="cart.html" aria-label="Shopping bag">Bag</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- SHOP HEADER -->
+
+    <main>
+
+        <section class="shop-header">
+
+            <p class="eyebrow">ÉLORA COLLECTION</p>
+
+            <h1>Shop</h1>
+
+            <p>
+                Explore our curated collection of timeless
+                fashion and accessories.
+            </p>
+
+        </section>
+
+
+        <!-- CATEGORY FILTER -->
+
+        <section class="shop-controls">
+
+            <div class="categories">
+
+                <button class="category active">
+                    All
+                </button>
+
+                <button class="category">
+                    Bags
+                </button>
+
+                <button class="category">
+                    Jewelry
+                </button>
+
+                <button class="category">
+                    Watches
+                </button>
+
+                <button class="category">
+                    Accessories
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRODUCTS -->
+
+<section class="shop-products">
+
+    <div class="shop-grid">
+
+        <!-- Products are loaded dynamically by shop.js -->
+
+    </div>
+
+</section>
+
+    </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase-config.js"></script>
+
+<script src="js/cart.js"></script>
+
+<script src="js/shop.js"></script>
+</body>
+</html>

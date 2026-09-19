@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ÉLORA Admin | Customers</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+
+<body class="admin-body">
+
+
+    <!-- ADMIN HEADER -->
+
+    <header class="admin-header">
+
+        <a href="admin.html"
+           class="admin-logo">
+            ÉLORA
+        </a>
+
+
+        <div class="admin-header-right">
+
+            <span>
+                Customer Management
+            </span>
+
+            <a href="admin.html">
+                Dashboard
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ADMIN LAYOUT -->
+
+    <div class="admin-layout">
+
+
+        <!-- SIDEBAR -->
+
+        <!-- SIDEBAR -->
+
+<aside class="admin-sidebar">
+
+    <nav>
+
+        <a href="admin.html"
+           class="admin-nav">
+            Dashboard
+        </a>
+
+        <a href="admin.html#orders"
+   class="admin-nav">
+    Orders
+</a>
+
+        <a href="admin-products.html"
+           class="admin-nav">
+            Products
+        </a>
+
+        <a href="admin-customers.html"
+           class="admin-nav active">
+            Customers
+        </a>
+
+        <a href="admin-settings.html"
+           class="admin-nav">
+            Settings
+        </a>
+
+    </nav>
+
+</aside>
+
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="admin-main">
+
+
+            <div class="admin-title">
+
+                <p class="eyebrow">
+                    ÉLORA CLIENTS
+                </p>
+
+                <h1>
+                    Customers
+                </h1>
+
+            </div>
+
+
+
+            <!-- CUSTOMERS -->
+
+            <section class="admin-orders">
+
+
+                <div class="admin-section-heading">
+
+                    <h2>
+                        Customer Directory
+                    </h2>
+
+                </div>
+
+
+
+                <div class="orders-table-wrapper">
+
+                    <table class="orders-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Customer
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    Phone
+                                </th>
+
+                                <th>
+                                    Orders
+                                </th>
+
+                                <th>
+                                    Total Spent
+                                </th>
+<th>
+    Action
+</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="customersTableBody">
+
+                            <tr>
+
+                                <td colspan="6">
+                                    Loading customers...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            </section>
+
+<!-- CUSTOMER DETAILS MODAL -->
+
+<div
+    id="customerModal"
+    class="order-modal"
+    style="display: none;"
+>
+
+    <div class="order-modal-content">
+
+        <button
+            type="button"
+            id="closeCustomerModal"
+            class="order-modal-close"
+        >
+            ×
+        </button>
+
+        <p class="eyebrow">
+            CUSTOMER DETAILS
+        </p>
+
+        <h2 id="modalCustomerName">
+            -
+        </h2>
+
+        <div id="customerModalBody"></div>
+
+    </div>
+
+</div>
+        </main>
+
+
+    </div>
+
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+    </script>
+
+
+    <script src="js/supabase-config.js">
+    </script>
+
+
+
+    <!-- CUSTOMER SCRIPT -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            loadCustomers
+        );
+
+
+        async function loadCustomers() {
+
+            const tableBody =
+                document.getElementById(
+                    "customersTableBody"
+                );
+
+
+            const {
+                data: orders,
+                error
+            } = await supabaseClient
+                .from("elora_orders")
+                .select(
+                    "customer_name, customer_email, phone, total"
+                );
+
+
+            if (error) {
+
+                console.error(
+                    "ÉLORA Customers Error:",
+                    error
+                );
+
+
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6">
+    Unable to load customers.
+</td>
+                    </tr>
+                `;
+
+                return;
+
+            }
+
+
+            if (!orders || orders.length === 0) {
+
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6">
+    No customers yet.
+</td>
+                    </tr>
+                `;
+
+                return;
+
+            }
+
+            // GROUP CUSTOMERS
+
+            const customers = {};
+
+
+            orders.forEach(order => {
+
+                const email =
+                    order.customer_email;
+
+
+                if (!customers[email]) {
+
+                    customers[email] = {
+
+                        name:
+                            order.customer_name || "-",
+
+                        email:
+                            email || "-",
+
+                        phone:
+                            order.phone || "-",
+
+                        orders: 0,
+
+                        totalSpent: 0
+
+                    };
+
+                }
+
+
+                customers[email].orders += 1;
+
+
+                customers[email].totalSpent +=
+                    Number(order.total || 0);
+
+            });
+
+
+
+            const customerList =
+                Object.values(customers);
+
+
+
+            // RENDER
+
+            tableBody.innerHTML =
+                customerList.map(customer => `
+
+                    <tr>
+
+    <td>
+        <strong>
+            ${customer.name}
+        </strong>
+    </td>
+
+    <td>
+        ${customer.email}
+    </td>
+
+    <td>
+        ${customer.phone}
+    </td>
+
+    <td>
+        ${customer.orders}
+    </td>
+
+    <td>
+        $${customer.totalSpent.toFixed(2)}
+    </td>
+
+    <td>
+        <button
+            type="button"
+            class="view-customer-button"
+            onclick="viewCustomer('${customer.email}')"
+        >
+            View
+        </button>
+    </td>
+
+</tr>
+
+                `).join("");
+
+        }
+// =========================
+// VIEW CUSTOMER DETAILS
+// =========================
+
+async function viewCustomer(customerEmail) {
+
+    console.log(
+        "ÉLORA VIEW CUSTOMER:",
+        customerEmail
+    );
+
+    const {
+        data: orders,
+        error
+    } = await supabaseClient
+        .from("elora_orders")
+        .select("*")
+        .eq(
+            "customer_email",
+            customerEmail
+        )
+        .order(
+            "created_at",
+            {
+                ascending: false
+            }
+        );
+
+
+    if (error) {
+
+        console.error(
+            "ÉLORA CUSTOMER ERROR:",
+            error
+        );
+
+        alert(
+            "Unable to load customer details."
+        );
+
+        return;
+    }
+
+
+    if (!orders || orders.length === 0) {
+
+        alert(
+            "No orders found for this customer."
+        );
+
+        return;
+    }
+
+
+    const customer =
+        orders[0];
+
+
+    const totalSpent =
+        orders.reduce(
+            (sum, order) =>
+                sum + Number(order.total || 0),
+            0
+        );
+
+
+    const modal =
+        document.getElementById(
+            "customerModal"
+        );
+
+
+    const modalName =
+        document.getElementById(
+            "modalCustomerName"
+        );
+
+
+    const modalBody =
+        document.getElementById(
+            "customerModalBody"
+        );
+
+
+    modalName.textContent =
+        customer.customer_name || "-";
+
+
+    const orderHistoryHTML =
+        orders.map(order => `
+
+            <div class="order-detail-product">
+
+                <div>
+
+                    <strong>
+                        ${order.order_id || "-"}
+                    </strong>
+
+                    <span>
+                        ${
+                            order.created_at
+                                ? new Date(
+                                    order.created_at
+                                ).toLocaleString(
+                                    "en-PH",
+                                    {
+                                        dateStyle: "medium",
+                                        timeStyle: "short"
+                                    }
+                                )
+                                : "-"
+                        }
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="order-detail-product-right"
+                >
+
+                    <span>
+                        ${order.status || "-"}
+                    </span>
+
+                    <strong>
+                        $${Number(
+                            order.total || 0
+                        ).toFixed(2)}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+
+    modalBody.innerHTML = `
+
+        <div class="order-detail-section">
+
+            <h3>
+                Customer Information
+            </h3>
+
+            <div class="order-detail-grid">
+
+                <div>
+                    <span>
+                        Name
+                    </span>
+
+                    <strong>
+                        ${customer.customer_name || "-"}
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>
+                        Email
+                    </span>
+
+                    <strong>
+                        ${customer.customer_email || "-"}
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>
+                        Phone
+                    </span>
+
+                    <strong>
+                        ${customer.phone || "-"}
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="order-detail-section">
+
+            <h3>
+                Customer Summary
+            </h3>
+
+            <div class="order-summary-detail">
+
+                <div>
+                    <span>
+                        Total Orders
+                    </span>
+
+                    <strong>
+                        ${orders.length}
+                    </strong>
+                </div>
+
+
+                <div class="order-grand-total">
+
+                    <span>
+                        Total Spent
+                    </span>
+
+                    <strong>
+                        $${totalSpent.toFixed(2)}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="order-detail-section">
+
+            <h3>
+                Order History
+            </h3>
+
+            <div class="order-detail-products">
+
+                ${orderHistoryHTML}
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    modal.style.display =
+        "flex";
+
+}
+// =========================
+// CLOSE CUSTOMER MODAL
+// =========================
+
+const closeCustomerButton =
+    document.getElementById(
+        "closeCustomerModal"
+    );
+
+const customerModal =
+    document.getElementById(
+        "customerModal"
+    );
+
+
+if (
+    closeCustomerButton &&
+    customerModal
+) {
+
+    closeCustomerButton.addEventListener(
+        "click",
+        () => {
+
+            customerModal.style.display =
+                "none";
+
+        }
+    );
+
+
+    customerModal.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                event.target ===
+                customerModal
+            ) {
+
+                customerModal.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
+    </script>
+
+
+</body>
+
+</html>

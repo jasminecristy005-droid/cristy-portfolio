@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Bag | ÉLORA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">ÉLORA</a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="shop.html">Continue Shopping</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- CART -->
+
+    <main>
+
+        <section class="cart-page">
+
+            <div class="cart-heading">
+
+                <p class="eyebrow">ÉLORA</p>
+
+                <h1>Your Bag</h1>
+
+            </div>
+
+
+            <div class="cart-layout">
+
+                <!-- CART ITEMS -->
+
+                <div class="cart-items" id="cartItems">
+
+                    <!-- JavaScript will load products here -->
+
+                </div>
+
+
+                <!-- CART SUMMARY -->
+
+                <aside class="cart-summary">
+
+                    <h2>Order Summary</h2>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <strong id="cartSubtotal">$0</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <strong>Free</strong>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <strong id="cartTotal">$0</strong>
+                    </div>
+
+                    <a
+                        href="checkout.html"
+                        class="checkout-button"
+                    >
+                        Proceed to Checkout
+                    </a>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            renderCart
+        );
+
+    </script>
+
+</body>
+
+</html>
