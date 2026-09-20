@@ -38,7 +38,7 @@
 .case-hero {
     width: min(1400px, 100%);
     margin: 0 auto;
-    padding: 80px var(--side-padding) 110px;
+    padding: 70px var(--side-padding) 90px;
 }
 
 .case-hero .section-label,
@@ -55,7 +55,7 @@
 
 .case-hero-content {
     max-width: 1000px;
-    margin-top: 70px;
+    margin-top: 55px;
 }
 
 .case-eyebrow {
@@ -92,7 +92,7 @@
 
 .case-hero-image {
     width: 100%;
-    margin-top: 90px;
+    margin-top: 70px;
     overflow: hidden;
 }
 
@@ -110,13 +110,13 @@
 .case-section {
     width: min(1400px, 100%);
     margin: 0 auto;
-    padding: 120px var(--side-padding);
+    padding: 95px var(--side-padding);
     border-top: 1px solid var(--line);
 }
 
 .case-section-content {
     max-width: 950px;
-    margin: 70px 0 0 auto;
+    margin: 55px 0 0 auto;
 }
 
 .case-section-content h2 {
@@ -172,7 +172,7 @@
 
 .case-function-list {
     max-width: 1000px;
-    margin: 70px 0 0 auto;
+    margin: 55px 0 0 auto;
     border-top: 1px solid var(--line);
 }
 
@@ -257,7 +257,7 @@
 
 .case-gallery {
     max-width: 1100px;
-    margin: 75px 0 0 auto;
+    margin: 60px 0 0 auto;
 }
 
 .case-gallery-item {
@@ -283,7 +283,7 @@
 .case-final {
     width: min(1400px, 100%);
     margin: 0 auto;
-    padding: 150px var(--side-padding);
+    padding: 110px var(--side-padding);
     text-align: center;
     border-top: 1px solid var(--line);
 }
