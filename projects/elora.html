@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ÉLORA | E-commerce & Order Management</title>
+
+    <meta
+        name="description"
+        content="ÉLORA is a luxury e-commerce and order management system built with HTML, CSS, JavaScript and Supabase."
+    >
+
+    <style>
+
+        :root {
+            --paper: #f3f0e9;
+            --paper-soft: #e8ece8;
+            --dark: #171714;
+            --text: #202421;
+            --muted: #6d7470;
+            --text-soft: #555c58;
+            --line: #d6dad5;
+            --accent: #0f766e;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--paper);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================== */
+
+        .case-header {
+            width: 100%;
+            padding: 24px 5vw;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid var(--line);
+            background: rgba(243, 240, 233, 0.96);
+        }
+
+        .brand {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+
+            color: var(--muted);
+
+            transition: color 0.25s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================== */
+
+        .case-hero {
+            padding: 95px 5vw 85px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .case-hero-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .case-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+
+            margin-bottom: 55px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .case-meta span:first-child {
+            color: var(--accent);
+        }
+
+        .case-hero h1 {
+            max-width: 1100px;
+            margin-bottom: 32px;
+
+            font-size: clamp(54px, 8vw, 115px);
+            font-weight: 500;
+            line-height: 0.9;
+            letter-spacing: -0.065em;
+        }
+
+        .case-hero h1 em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+        .case-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+
+            max-width: 1100px;
+            padding-top: 32px;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .case-intro p {
+            max-width: 520px;
+
+            font-size: 15px;
+            line-height: 1.75;
+
+            color: var(--text-soft);
+        }
+
+        .case-actions {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+
+        .live-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 45px;
+
+            min-width: 220px;
+            padding: 17px 18px;
+
+            background: var(--dark);
+            color: #ffffff;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .live-button:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .live-button span {
+            font-size: 15px;
+        }
+
+
+        /* =========================================
+           SHARED SECTION
+        ========================================== */
+
+        .case-section {
+            padding: 120px 5vw;
+        }
+
+        .case-section-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            margin-bottom: 45px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .section-label span {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .section-heading {
+            max-width: 850px;
+            margin-bottom: 55px;
+
+            font-size: clamp(40px, 5vw, 72px);
+            font-weight: 500;
+            line-height: 0.96;
+            letter-spacing: -0.055em;
+        }
+
+        .section-heading em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+
+        /* =========================================
+           OVERVIEW
+        ========================================== */
+
+        .overview-section {
+            background: #ffffff;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+
+            max-width: 1250px;
+        }
+
+        .overview-copy {
+            max-width: 580px;
+        }
+
+        .overview-copy p {
+            margin-bottom: 22px;
+
+            font-size: 15px;
+            line-height: 1.8;
+
+            color: var(--text-soft);
+        }
+
+        .overview-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-facts {
+            border-top: 1px solid var(--line);
+        }
+
+        .fact {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 25px;
+
+            padding: 19px 0;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .fact span:first-child {
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .fact span:last-child {
+            font-size: 13px;
+            color: var(--text);
+        }
+
+
+        /* =========================================
+           SYSTEM PREVIEW
+        ========================================== */
+
+        .preview-section {
+            background: var(--paper-soft);
+        }
+
+        .preview-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .preview-slider {
+            position: relative;
+            overflow: hidden;
+
+            background: #ffffff;
+            border: 1px solid var(--line);
+        }
+
+        .preview-slide {
+            display: none;
+            padding: 28px;
+        }
+
+        .preview-slide.active {
+            display: block;
+        }
+
+        .preview-slide img {
+            width: 100%;
+            height: 560px;
+
+            object-fit: contain;
+            object-position: center;
+
+            background: #f5f6f4;
+        }
+
+        .preview-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 20px;
+
+            border-top: 1px solid var(--line);
+            background: #ffffff;
+        }
+
+        .preview-arrow {
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--line);
+            background: transparent;
+
+            color: var(--text);
+            font-size: 17px;
+
+            cursor: pointer;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .preview-arrow:hover {
+            background: var(--dark);
+            color: #ffffff;
+            border-color: var(--dark);
+        }
+
+        .preview-dots {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .preview-dot {
+            width: 7px;
+            height: 7px;
+
+            padding: 0;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: #c8ceca;
+
+            cursor: pointer;
+        }
+
+        .preview-dot.active {
+            background: var(--accent);
+        }
+
+        .preview-caption {
+            margin-top: 18px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+
+        /* =========================================
+           WHAT I BUILT
+        ========================================== */
+
+        .build-section {
+            background: var(--paper);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .feature-card {
+            min-height: 270px;
+            padding: 28px;
+
+            background: var(--paper);
+
+            transition:
+                background 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: #ffffff;
+            transform: translateY(-4px);
+        }
+
+        .feature-number {
+            display: block;
+            margin-bottom: 55px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+
+            color: var(--accent);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 14px;
+
+            font-size: 25px;
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -0.035em;
+        }
+
+        .feature-card p {
+            max-width: 330px;
+
+            font-size: 12px;
+            line-height: 1.7;
+
+            color: var(--text-soft);
+        }
+
+
+        /* =========================================
+           ORDER FLOW
+        ========================================== */
+
+        .flow-section {
+            background: var(--dark);
+            color: #ffffff;
+        }
+
+        .flow-section .section-label {
+            color: rgba(255,255,255,0.45);
+        }
+
+        .flow-section .section-label span {
+            color: var(--accent);
+        }
+
+        .flow-section .section-heading {
+            color: #ffffff;
+        }
+
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+
+            border-top: 1px solid rgba(255,255,255,0.14);
+            border-bottom: 1px solid rgba(255,255,255,0.14);
+        }
+
+        .flow-step {
+            min-height: 240px;
+            padding: 25px;
+
+            border-right: 1px solid rgba(255,255,255,0.14);
+        }
+
+        .flow-step:last-child {
+            border-right: none;
+        }
+
+        .flow-step-number {
+            display: block;
+            margin-bottom: 60px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+
+            color: var(--accent);
+        }
+
+        .flow-step h3 {
+            margin-bottom: 12px;
+
+            font-size: 23px;
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -0.035em;
+        }
+
+        .flow-step p {
+            max-width: 240px;
+
+            font-size: 12px;
+            line-height: 1.65;
+
+            color: rgba(255,255,255,0.55);
+        }
+
+
+        /* =========================================
+           TOOLS
+        ========================================== */
+
+        .tools-section {
+            background: #ffffff;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            max-width: 900px;
+        }
+
+        .tools-list span {
+            padding: 10px 13px;
+
+            border: 1px solid var(--line);
+            background: #f7f8f6;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+
+            color: var(--text-soft);
+        }
+
+
+        /* =========================================
+           FINAL CTA
+        ========================================== */
+
+        .case-cta {
+            padding: 120px 5vw 70px;
+
+            background: var(--paper);
+            border-top: 1px solid var(--line);
+        }
+
+        .case-cta-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .case-cta h2 {
+            max-width: 900px;
+            margin-bottom: 35px;
+
+            font-size: clamp(44px, 6vw, 82px);
+            font-weight: 500;
+            line-height: 0.94;
+            letter-spacing: -0.06em;
+        }
+
+        .case-cta h2 em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+        .cta-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+
+            padding-top: 28px;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .cta-primary,
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .cta-primary {
+            padding: 16px 20px;
+
+            background: var(--dark);
+            color: #ffffff;
+        }
+
+        .cta-primary:hover {
+            background: var(--accent);
+        }
+
+        .cta-secondary {
+            color: var(--muted);
+        }
+
+        .cta-secondary:hover {
+            color: var(--accent);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================== */
+
+        .case-footer {
+            padding: 25px 5vw;
+
+            background: var(--dark);
+            color: rgba(255,255,255,0.45);
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media (max-width: 1000px) {
+
+            .case-intro,
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .case-actions {
+                justify-content: flex-start;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .flow-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .flow-step:nth-child(2) {
+                border-right: none;
+            }
+
+            .flow-step:nth-child(-n+2) {
+                border-bottom: 1px solid rgba(255,255,255,0.14);
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .case-header {
+                padding: 20px 6vw;
+            }
+
+            .case-hero {
+                padding: 70px 6vw;
+            }
+
+            .case-meta {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+
+                margin-bottom: 40px;
+            }
+
+            .case-hero h1 {
+                font-size: 52px;
+            }
+
+            .case-section {
+                padding: 85px 6vw;
+            }
+
+            .section-heading {
+                font-size: 43px;
+            }
+
+            .feature-grid,
+            .flow-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-step {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.14);
+            }
+
+            .flow-step:last-child {
+                border-bottom: none;
+            }
+
+            .fact {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .live-button {
+                width: 100%;
+            }
+
+            .preview-slide {
+                padding: 12px;
+            }
+
+            .preview-slide img {
+                height: 360px;
+            }
+
+            .preview-controls {
+                padding: 14px;
+            }
+
+            .case-cta {
+                padding: 85px 6vw 55px;
+            }
+
+            .case-cta h2 {
+                font-size: 48px;
+            }
+
+            .cta-links {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .case-footer {
+                padding: 22px 6vw;
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="case-header">
+
+        <a
+            href="../index.html"
+            class="brand"
+        >
+            CRISTY.
+        </a>
+
+        <a
+            href="../index.html#work"
+            class="back-link"
+        >
+            ← Back to Selected Work
+        </a>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =========================================
+             HERO
+        ========================================== -->
+
+        <section class="case-hero">
+
+            <div class="case-hero-inner">
+
+                <div class="case-meta">
+
+                    <span>
+                        02 — SELECTED PROJECT
+                    </span>
+
+                    <span>
+                        E-COMMERCE · ORDER MANAGEMENT
+                    </span>
+
+                </div>
+
+
+                <h1>
+                    ÉL<em>ORA</em>
+                </h1>
+
+
+                <div class="case-intro">
+
+                    <p>
+                        A luxury e-commerce and order management
+                        system designed to connect product browsing,
+                        shopping, checkout and internal order
+                        processing in one digital workflow.
+                    </p>
+
+
+                    <div class="case-actions">
+
+                        <a
+                            href="https://jasminecristy005-droid.github.io/elora-store/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="live-button"
+                        >
+                            VIEW LIVE PROJECT
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             OVERVIEW
+        ========================================== -->
+
+        <section class="case-section overview-section">
+
+            <div class="case-section-inner">
+
+                <div class="section-label">
+                    <span>01</span>
+                    PROJECT OVERVIEW
+                </div>
+
+
+                <div class="overview-grid">
+
+
+                    <div class="overview-copy">
+
+                        <h2 class="section-heading">
+                            An e-commerce experience
+                            with an
+                            <em>operational backend.</em>
+                        </h2>
+
+
+                        <p>
+                            ÉLORA was built as more than a storefront.
+                            The project combines a customer-facing
+                            shopping experience with an internal
+                            order management workflow.
+                        </p>
+
+
+                        <p>
+                            Customers can browse products, manage a cart,
+                            complete checkout and track orders, while
+                            administrative users can manage products,
+                            customers and order statuses.
+                        </p>
+
+                    </div>
+
+
+                    <div class="project-facts">
+
+
+                        <div class="fact">
+
+                            <span>
+                                Project
+                            </span>
+
+                            <span>
+                                ÉLORA E-commerce
+                            </span>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <span>
+                                Type
+                            </span>
+
+                            <span>
+                                E-commerce & Order Management
+                            </span>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <span>
+                                Focus
+                            </span>
+
+                            <span>
+                                Shopping · Checkout · Operations
+                            </span>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <span>
+                                Frontend
+                            </span>
+
+                            <span>
+                                HTML · CSS · JavaScript
+                            </span>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <span>
+                                Backend
+                            </span>
+
+                            <span>
+                                Supabase · PostgreSQL
+                            </span>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <span>
+                                Deployment
+                            </span>
+
+                            <span>
+                                GitHub Pages
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SYSTEM PREVIEW
+        ========================================== -->
+
+        <section class="case-section preview-section">
+
+            <div class="case-section-inner">
+
+
+                <div class="section-label">
+                    <span>02</span>
+                    SYSTEM PREVIEW
+                </div>
+
+
+                <h2 class="section-heading">
+                    A closer look at the
+                    <em>ÉLORA experience.</em>
+                </h2>
+
+
+                <div class="preview-wrap">
+
+
+                    <div class="preview-slider">
+
+
+                        <div class="preview-slide active">
+
+                            <img
+                                src="../assets/elora/store.png"
+                                alt="ÉLORA online store"
+                            >
+
+                        </div>
+
+
+                        <div class="preview-slide">
+
+                            <img
+                                src="../assets/elora/checkout.png"
+                                alt="ÉLORA checkout"
+                            >
+
+                        </div>
+
+
+                        <div class="preview-slide">
+
+                            <img
+                                src="../assets/elora/track-order.jpg"
+                                alt="ÉLORA order tracking"
+                            >
+
+                        </div>
+
+
+                        <div class="preview-slide">
+
+                            <img
+                                src="../assets/elora/admin.jpg"
+                                alt="ÉLORA admin dashboard"
+                            >
+
+                        </div>
+
+
+                        <div class="preview-controls">
+
+
+                            <button
+                                class="preview-arrow"
+                                id="previewPrev"
+                                type="button"
+                                aria-label="Previous screenshot"
+                            >
+                                ←
+                            </button>
+
+
+                            <div class="preview-dots">
+
+
+                                <button
+                                    class="preview-dot active"
+                                    type="button"
+                                    data-slide="0"
+                                    aria-label="Show screenshot 1"
+                                ></button>
+
+
+                                <button
+                                    class="preview-dot"
+                                    type="button"
+                                    data-slide="1"
+                                    aria-label="Show screenshot 2"
+                                ></button>
+
+
+                                <button
+                                    class="preview-dot"
+                                    type="button"
+                                    data-slide="2"
+                                    aria-label="Show screenshot 3"
+                                ></button>
+
+
+                                <button
+                                    class="preview-dot"
+                                    type="button"
+                                    data-slide="3"
+                                    aria-label="Show screenshot 4"
+                                ></button>
+
+
+                            </div>
+
+
+                            <button
+                                class="preview-arrow"
+                                id="previewNext"
+                                type="button"
+                                aria-label="Next screenshot"
+                            >
+                                →
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="preview-caption">
+                        Storefront · Checkout · Order Tracking · Admin
+                    </p>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             WHAT I BUILT
+        ========================================== -->
+
+        <section class="case-section build-section">
+
+            <div class="case-section-inner">
+
+
+                <div class="section-label">
+                    <span>03</span>
+                    WHAT I BUILT
+                </div>
+
+
+                <h2 class="section-heading">
+                    A storefront connected to
+                    <em>real workflows.</em>
+                </h2>
+
+
+                <div class="feature-grid">
+
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Product Browsing
+                        </h3>
+
+                        <p>
+                            A structured product experience designed
+                            for browsing luxury accessories and
+                            viewing product details.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Shopping Cart
+                        </h3>
+
+                        <p>
+                            Customers can add products, review their
+                            selections and manage items before checkout.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Checkout
+                        </h3>
+
+                        <p>
+                            A customer checkout flow captures order
+                            information and creates an order record.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            04
+                        </span>
+
+                        <h3>
+                            Order Tracking
+                        </h3>
+
+                        <p>
+                            Customers can track the progress of their
+                            order through defined order statuses.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            05
+                        </span>
+
+                        <h3>
+                            Admin Dashboard
+                        </h3>
+
+                        <p>
+                            Internal management views provide access
+                            to orders, customers, products and settings.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            06
+                        </span>
+
+                        <h3>
+                            Product Management
+                        </h3>
+
+                        <p>
+                            Administrative users can manage product
+                            records through the internal system.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             ORDER FLOW
+        ========================================== -->
+
+        <section class="case-section flow-section">
+
+            <div class="case-section-inner">
+
+
+                <div class="section-label">
+                    <span>04</span>
+                    ORDER FLOW
+                </div>
+
+
+                <h2 class="section-heading">
+                    From product discovery to
+                    <em>order completion.</em>
+                </h2>
+
+
+                <div class="flow-grid">
+
+
+                    <article class="flow-step">
+
+                        <span class="flow-step-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Browse
+                        </h3>
+
+                        <p>
+                            Customers explore products and select
+                            the items they want to purchase.
+                        </p>
+
+                    </article>
+
+
+                    <article class="flow-step">
+
+                        <span class="flow-step-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Checkout
+                        </h3>
+
+                        <p>
+                            Product selections and customer details
+                            are submitted through the checkout flow.
+                        </p>
+
+                    </article>
+
+
+                    <article class="flow-step">
+
+                        <span class="flow-step-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Process
+                        </h3>
+
+                        <p>
+                            The order becomes part of the internal
+                            order management workflow.
+                        </p>
+
+                    </article>
+
+
+                    <article class="flow-step">
+
+                        <span class="flow-step-number">
+                            04
+                        </span>
+
+                        <h3>
+                            Track
+                        </h3>
+
+                        <p>
+                            Customers can follow order progress through
+                            the system's defined statuses.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             TOOLS
+        ========================================== -->
+
+        <section class="case-section tools-section">
+
+            <div class="case-section-inner">
+
+
+                <div class="section-label">
+                    <span>05</span>
+                    TOOLS & TECHNOLOGY
+                </div>
+
+
+                <h2 class="section-heading">
+                    Built with practical
+                    <em>web technologies.</em>
+                </h2>
+
+
+                <div class="tools-list">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JAVASCRIPT</span>
+                    <span>SUPABASE</span>
+                    <span>POSTGRESQL</span>
+                    <span>AUTHENTICATION</span>
+                    <span>REALTIME</span>
+                    <span>GITHUB</span>
+                    <span>GITHUB PAGES</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             FINAL CTA
+        ========================================== -->
+
+        <section class="case-cta">
+
+            <div class="case-cta-inner">
+
+
+                <div class="section-label">
+                    <span>06</span>
+                    EXPLORE THE SYSTEM
+                </div>
+
+
+                <h2>
+                    See the actual
+                    <em>ÉLORA store.</em>
+                </h2>
+
+
+                <div class="cta-links">
+
+
+                    <a
+                        href="https://jasminecristy005-droid.github.io/elora-store/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="cta-primary"
+                    >
+                        VIEW LIVE PROJECT
+                        <span>↗</span>
+                    </a>
+
+
+                    <a
+                        href="../index.html#work"
+                        class="cta-secondary"
+                    >
+                        ← BACK TO SELECTED WORK
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="case-footer">
+
+        <span>
+            ÉLORA · CASE STUDY
+        </span>
+
+        <span>
+            CRISTY DEVELLERES · 2026
+        </span>
+
+    </footer>
+
+
+    <!-- =========================================
+         SLIDESHOW JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+        const slides = document.querySelectorAll(".preview-slide");
+        const dots = document.querySelectorAll(".preview-dot");
+
+        const prevButton = document.getElementById("previewPrev");
+        const nextButton = document.getElementById("previewNext");
+
+        let currentSlide = 0;
+
+
+        function showSlide(index) {
+
+            slides.forEach((slide, i) => {
+
+                slide.classList.toggle(
+                    "active",
+                    i === index
+                );
+
+            });
+
+
+            dots.forEach((dot, i) => {
+
+                dot.classList.toggle(
+                    "active",
+                    i === index
+                );
+
+            });
+
+
+            currentSlide = index;
+
+        }
+
+
+        nextButton.addEventListener("click", () => {
+
+            const next =
+                (currentSlide + 1) % slides.length;
+
+            showSlide(next);
+
+        });
+
+
+        prevButton.addEventListener("click", () => {
+
+            const previous =
+                (currentSlide - 1 + slides.length) %
+                slides.length;
+
+            showSlide(previous);
+
+        });
+
+
+        dots.forEach((dot) => {
+
+            dot.addEventListener("click", () => {
+
+                showSlide(
+                    Number(dot.dataset.slide)
+                );
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+</html>

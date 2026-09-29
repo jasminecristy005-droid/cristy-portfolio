@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | Cristy Develleres</title>
+
+    <style>
+
+        :root {
+            --paper: #f3f0e9;
+            --paper-soft: #e8ece8;
+            --dark: #171714;
+            --text: #202421;
+            --muted: #6d7470;
+            --text-soft: #555c58;
+            --line: #d6dad5;
+            --accent: #0f766e;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 28px 5vw;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .back-link {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            color: var(--muted);
+
+            transition: color 0.25s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            background: var(--dark);
+            color: var(--white);
+
+            padding: 110px 5vw 120px;
+        }
+
+        .hero-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 80px;
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+
+            color: #9c9c96;
+        }
+
+        .hero-kicker {
+            margin-bottom: 20px;
+
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+
+            color: #5fc5ba;
+        }
+
+        .hero h1 {
+            max-width: 1100px;
+
+            font-size: clamp(60px, 10vw, 145px);
+            line-height: 0.88;
+            letter-spacing: -0.07em;
+            font-weight: 800;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            margin-top: 45px;
+
+            font-size: 18px;
+            line-height: 1.7;
+
+            color: #b8b8b1;
+        }
+
+
+        /* =========================================
+           PROJECTS
+        ========================================= */
+
+        .projects-section {
+            padding: 110px 5vw 130px;
+        }
+
+        .projects-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            margin-bottom: 60px;
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 1px;
+
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .project-card {
+            background: var(--paper);
+
+            padding: 34px;
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .project-card:hover {
+            background: var(--white);
+        }
+
+        .project-number {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 55px;
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+
+            color: var(--muted);
+        }
+
+        .project-title {
+            margin-bottom: 8px;
+
+            font-size: clamp(38px, 5vw, 70px);
+            line-height: 0.95;
+            letter-spacing: -0.055em;
+            font-weight: 800;
+        }
+
+        .project-type {
+            margin-bottom: 28px;
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            color: var(--accent);
+        }
+
+        .project-image {
+            aspect-ratio: 16 / 9;
+
+            margin-bottom: 28px;
+
+            overflow: hidden;
+
+            background: var(--paper-soft);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.03);
+        }
+
+        .project-description {
+            max-width: 580px;
+
+            margin-bottom: 30px;
+
+            font-size: 15px;
+            line-height: 1.7;
+
+            color: var(--text-soft);
+        }
+
+        .project-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+
+            padding-bottom: 24px;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .project-tools span {
+            padding: 7px 10px;
+
+            border: 1px solid var(--line);
+
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+
+            color: var(--muted);
+        }
+
+        .project-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding-top: 17px;
+
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+
+            transition: color 0.25s ease;
+        }
+
+        .project-link span {
+            font-size: 14px;
+        }
+
+        .project-link:hover {
+            color: var(--accent);
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .cta-section {
+            background: var(--accent);
+            color: var(--white);
+
+            padding: 110px 5vw;
+        }
+
+        .cta-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .cta-label {
+            margin-bottom: 40px;
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+
+            color: rgba(255,255,255,0.7);
+        }
+
+        .cta-heading {
+            max-width: 1000px;
+
+            font-size: clamp(48px, 7vw, 95px);
+            line-height: 0.95;
+            letter-spacing: -0.06em;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+
+            margin-top: 50px;
+            padding: 16px 22px;
+
+            background: var(--white);
+            color: var(--dark);
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+            padding: 30px 5vw;
+
+            background: var(--dark);
+            color: #999992;
+        }
+
+        .footer-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-brand {
+            color: var(--white);
+
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .footer-copy {
+            font-size: 9px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 80px;
+                padding-bottom: 90px;
+            }
+
+            .hero-meta {
+                margin-bottom: 55px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .header {
+                padding: 22px 5vw;
+            }
+
+            .hero {
+                padding: 70px 5vw 80px;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 10px;
+
+                margin-bottom: 45px;
+            }
+
+            .hero h1 {
+                font-size: clamp(52px, 16vw, 85px);
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .projects-section {
+                padding: 80px 5vw 90px;
+            }
+
+            .project-card {
+                padding: 24px;
+            }
+
+            .project-number {
+                margin-bottom: 40px;
+            }
+
+            .project-title {
+                font-size: 48px;
+            }
+
+            .cta-section {
+                padding: 80px 5vw;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header class="header">
+
+        <a href="index.html" class="brand">
+            CRISTY.
+        </a>
+
+        <a href="index.html#work" class="back-link">
+            ← Back to Selected Work
+        </a>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="hero">
+
+        <div class="hero-inner">
+
+            <div class="hero-meta">
+                <span>PROJECT ARCHIVE</span>
+                <span>ADMINISTRATION · DIGITAL OPERATIONS</span>
+            </div>
+
+            <div class="hero-kicker">
+                SELECTED WORK · ALL PROJECTS
+            </div>
+
+            <h1>
+                WORK, SYSTEMS<br>
+                & DIGITAL PROJECTS.
+            </h1>
+
+            <p class="hero-description">
+                A collection of business systems, e-commerce projects,
+                sales support workflows, and digital operations work.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         PROJECTS
+    ========================================= -->
+
+    <section class="projects-section">
+
+        <div class="projects-inner">
+
+            <div class="section-label">
+                01 — PROJECT ARCHIVE
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <!-- 01 — ADMINISTRATIVE OPERATIONS -->
+
+                <article class="project-card">
+
+                    <div class="project-number">
+                        <span>01</span>
+                        <span>↗</span>
+                    </div>
+
+                    <h2 class="project-title">
+                        ADMIN
+                    </h2>
+
+                    <p class="project-type">
+                        ADMINISTRATIVE · BUSINESS OPERATIONS
+                    </p>
+
+                    <div class="project-image">
+                        <img
+                            src="assets/administrative.png"
+                            alt="Administrative and Business Operations"
+                        >
+                    </div>
+
+                    <p class="project-description">
+                        10+ years of hands-on business administration,
+                        customer coordination, documentation, daily
+                        operations, and workflow support.
+                    </p>
+
+                    <div class="project-tools">
+                        <span>ADMINISTRATION</span>
+                        <span>DATA</span>
+                        <span>DOCUMENTATION</span>
+                        <span>OPERATIONS</span>
+                    </div>
+
+                    <a
+                        href="projects/admin-operations.html"
+                        class="project-link"
+                    >
+                        VIEW EXPERIENCE
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- 02 — LUMACARE -->
+
+                <article class="project-card">
+
+                    <div class="project-number">
+                        <span>02</span>
+                        <span>↗</span>
+                    </div>
+
+                    <h2 class="project-title">
+                        LUMACARE
+                    </h2>
+
+                    <p class="project-type">
+                        HOME SERVICES · MANAGEMENT SYSTEM
+                    </p>
+
+                    <div class="project-image">
+                        <img
+                            src="assets/lumacare.png"
+                            alt="LumaCare Home Services Management System"
+                        >
+                    </div>
+
+                    <p class="project-description">
+                        A responsive business management system covering
+                        bookings, customers, leads, scheduling, statuses,
+                        notes, and operational tracking.
+                    </p>
+
+                    <div class="project-tools">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JAVASCRIPT</span>
+                        <span>SUPABASE</span>
+                    </div>
+
+                    <a
+                        href="projects/lumacare.html"
+                        class="project-link"
+                    >
+                        VIEW CASE STUDY
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- 03 — ÉLORA -->
+
+                <article class="project-card">
+
+                    <div class="project-number">
+                        <span>03</span>
+                        <span>↗</span>
+                    </div>
+
+                    <h2 class="project-title">
+                        ÉLORA
+                    </h2>
+
+                    <p class="project-type">
+                        E-COMMERCE · ORDER MANAGEMENT
+                    </p>
+
+                    <div class="project-image">
+                        <img
+                            src="assets/elora.png"
+                            alt="ÉLORA E-commerce Store"
+                        >
+                    </div>
+
+                    <p class="project-description">
+                        A polished e-commerce storefront connected to
+                        product management, checkout, order tracking,
+                        and an admin workflow.
+                    </p>
+
+                    <div class="project-tools">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JAVASCRIPT</span>
+                        <span>SUPABASE</span>
+                    </div>
+
+                    <a
+                        href="projects/elora.html"
+                        class="project-link"
+                    >
+                        VIEW CASE STUDY
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- 04 — LEAD OPERATIONS -->
+
+                <article class="project-card">
+
+                    <div class="project-number">
+                        <span>04</span>
+                        <span>↗</span>
+                    </div>
+
+                    <h2 class="project-title">
+                        LEAD<br>OPERATIONS
+                    </h2>
+
+                    <p class="project-type">
+                        SALES SUPPORT · DATA OPERATIONS
+                    </p>
+
+                    <div class="project-image">
+                        <img
+                            src="assets/leadoperations.png"
+                            alt="Lead Operations and Sales Support"
+                        >
+                    </div>
+
+                    <p class="project-description">
+                        A structured lead-generation and data workflow
+                        covering prospect research, enrichment, CRM
+                        organization, and reporting.
+                    </p>
+
+                    <div class="project-tools">
+                        <span>CRM</span>
+                        <span>APOLLO</span>
+                        <span>SEAMLESS AI</span>
+                        <span>PROSPEO</span>
+                    </div>
+
+                    <a
+                        href="projects/lead-operations.html"
+                        class="project-link"
+                    >
+                        VIEW CASE STUDY
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- 05 — BREW & BLISS -->
+
+                <article class="project-card">
+
+                    <div class="project-number">
+                        <span>05</span>
+                        <span>↗</span>
+                    </div>
+
+                    <h2 class="project-title">
+                        BREW<br>& BLISS
+                    </h2>
+
+                    <p class="project-type">
+                        LANDING PAGE · LEAD / ORDER FLOW
+                    </p>
+
+                    <div class="project-image">
+                        <img
+                            src="assets/brew&bliss-1.png"
+                            alt="Brew and Bliss Landing Page"
+                        >
+                    </div>
+
+                    <p class="project-description">
+                        A conversion-focused coffee landing page with
+                        lead capture, order flow, thank-you redirect,
+                        and connected data handling.
+                    </p>
+
+                    <div class="project-tools">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JAVASCRIPT</span>
+                        <span>SUPABASE</span>
+                    </div>
+
+                    <a
+                        href="https://jasminecristy005-droid.github.io/brew-bliss-landing-page/"
+                        target="_blank"
+                        rel="noopener"
+                        class="project-link"
+                    >
+                        VIEW LIVE PROJECT
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
+    <section class="cta-section">
+
+        <div class="cta-inner">
+
+            <div class="cta-label">
+                02 — LET'S WORK
+            </div>
+
+            <h2 class="cta-heading">
+                Need someone to keep the admin, data, and workflow moving?
+            </h2>
+
+            <a
+                href="index.html#contact"
+                class="cta-button"
+            >
+                Let's Work Together
+                <span>↗</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                CRISTY.
+            </div>
+
+            <div class="footer-copy">
+                ADMINISTRATIVE · DIGITAL OPERATIONS
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

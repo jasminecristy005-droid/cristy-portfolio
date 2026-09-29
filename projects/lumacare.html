@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LumaCare | Home Services Management System</title>
+
+    <meta
+        name="description"
+        content="LumaCare is a responsive home services management system built to organize bookings, customers, leads, services and daily business operations."
+    >
+
+    <style>
+        :root {
+            --paper: #f3f0e9;
+            --paper-soft: #e8ece8;
+            --dark: #171714;
+            --text: #202421;
+            --muted: #6d7470;
+            --text-soft: #555c58;
+            --line: #d6dad5;
+            --accent: #0f766e;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--paper);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .case-header {
+            width: 100%;
+            padding: 24px 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--line);
+            background: rgba(243, 240, 233, 0.96);
+        }
+
+        .brand {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--muted);
+            transition: color 0.25s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .case-hero {
+            padding: 95px 5vw 85px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .case-hero-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .case-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 55px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .case-meta span:first-child {
+            color: var(--accent);
+        }
+
+        .case-hero h1 {
+            max-width: 1100px;
+            margin-bottom: 32px;
+            font-size: clamp(54px, 8vw, 115px);
+            font-weight: 500;
+            line-height: 0.9;
+            letter-spacing: -0.065em;
+        }
+
+        .case-hero h1 em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+        .case-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            max-width: 1100px;
+            padding-top: 32px;
+            border-top: 1px solid var(--line);
+        }
+
+        .case-intro p {
+            max-width: 520px;
+            font-size: 15px;
+            line-height: 1.75;
+            color: var(--text-soft);
+        }
+
+        .case-actions {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+
+        .live-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 45px;
+            min-width: 220px;
+            padding: 17px 18px;
+            background: var(--dark);
+            color: #ffffff;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .live-button:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .live-button span {
+            font-size: 15px;
+        }
+
+        /* =========================================
+           SHARED SECTION
+        ========================================= */
+
+        .case-section {
+            padding: 120px 5vw;
+        }
+
+        .case-section-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            margin-bottom: 45px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .section-label span {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .section-heading {
+            max-width: 850px;
+            margin-bottom: 55px;
+            font-size: clamp(40px, 5vw, 72px);
+            font-weight: 500;
+            line-height: 0.96;
+            letter-spacing: -0.055em;
+        }
+
+        .section-heading em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+        /* =========================================
+           OVERVIEW
+        ========================================= */
+
+        .overview-section {
+            background: #ffffff;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1250px;
+        }
+
+        .overview-copy {
+            max-width: 580px;
+        }
+
+        .overview-copy p {
+            margin-bottom: 22px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-soft);
+        }
+
+        .overview-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-facts {
+            border-top: 1px solid var(--line);
+        }
+
+        .fact {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 25px;
+            padding: 19px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .fact span:first-child {
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .fact span:last-child {
+            font-size: 13px;
+            color: var(--text);
+        }
+
+        /* =========================================
+           WHAT I BUILT
+        ========================================= */
+
+        .build-section {
+            background: var(--paper);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .feature-card {
+            min-height: 270px;
+            padding: 28px;
+            background: var(--paper);
+            transition:
+                background 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: #ffffff;
+            transform: translateY(-4px);
+        }
+
+        .feature-number {
+            display: block;
+            margin-bottom: 55px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 14px;
+            font-size: 25px;
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -0.035em;
+        }
+
+        .feature-card p {
+            max-width: 330px;
+            font-size: 12px;
+            line-height: 1.7;
+            color: var(--text-soft);
+        }
+
+        /* =========================================
+           SYSTEM FLOW
+        ========================================= */
+
+        .flow-section {
+            background: var(--dark);
+            color: #ffffff;
+        }
+
+        .flow-section .section-label {
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .flow-section .section-label span {
+            color: var(--accent);
+        }
+
+        .flow-section .section-heading {
+            color: #ffffff;
+        }
+
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            border-top: 1px solid rgba(255,255,255,0.14);
+            border-bottom: 1px solid rgba(255,255,255,0.14);
+        }
+
+        .flow-step {
+            min-height: 240px;
+            padding: 25px;
+            border-right: 1px solid rgba(255,255,255,0.14);
+        }
+
+        .flow-step:last-child {
+            border-right: none;
+        }
+
+        .flow-step-number {
+            display: block;
+            margin-bottom: 60px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+        }
+
+        .flow-step h3 {
+            margin-bottom: 12px;
+            font-size: 23px;
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -0.035em;
+        }
+
+        .flow-step p {
+            max-width: 240px;
+            font-size: 12px;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.55);
+        }
+
+        /* =========================================
+           TOOLS
+        ========================================= */
+
+        .tools-section {
+            background: #ffffff;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-width: 900px;
+        }
+
+        .tools-list span {
+            padding: 10px 13px;
+            border: 1px solid var(--line);
+            background: #f7f8f6;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            color: var(--text-soft);
+        }
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .case-cta {
+            padding: 120px 5vw 70px;
+            background: var(--paper);
+            border-top: 1px solid var(--line);
+        }
+
+        .case-cta-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .case-cta h2 {
+            max-width: 900px;
+            margin-bottom: 35px;
+            font-size: clamp(44px, 6vw, 82px);
+            font-weight: 500;
+            line-height: 0.94;
+            letter-spacing: -0.06em;
+        }
+
+        .case-cta h2 em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+        .cta-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            padding-top: 28px;
+            border-top: 1px solid var(--line);
+        }
+
+        .cta-primary,
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .cta-primary {
+            padding: 16px 20px;
+            background: var(--dark);
+            color: #ffffff;
+        }
+
+        .cta-primary:hover {
+            background: var(--accent);
+        }
+
+        .cta-secondary {
+            color: var(--muted);
+        }
+
+        .cta-secondary:hover {
+            color: var(--accent);
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .case-footer {
+            padding: 25px 5vw;
+            background: var(--dark);
+            color: rgba(255,255,255,0.45);
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            .case-intro,
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .case-actions {
+                justify-content: flex-start;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .flow-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .flow-step:nth-child(2) {
+                border-right: none;
+            }
+
+            .flow-step:nth-child(-n+2) {
+                border-bottom: 1px solid rgba(255,255,255,0.14);
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .case-header {
+                padding: 20px 6vw;
+            }
+
+            .case-hero {
+                padding: 70px 6vw;
+            }
+
+            .case-meta {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+                margin-bottom: 40px;
+            }
+
+            .case-hero h1 {
+                font-size: 52px;
+            }
+
+            .case-section {
+                padding: 85px 6vw;
+            }
+
+            .section-heading {
+                font-size: 43px;
+            }
+
+            .feature-grid,
+            .flow-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-step {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.14);
+            }
+
+            .flow-step:last-child {
+                border-bottom: none;
+            }
+
+            .fact {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .live-button {
+                width: 100%;
+            }
+
+            .case-cta {
+                padding: 85px 6vw 55px;
+            }
+
+            .case-cta h2 {
+                font-size: 48px;
+            }
+
+            .cta-links {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .case-footer {
+                padding: 22px 6vw;
+                flex-direction: column;
+            }
+        }
+        /* =========================================
+   SYSTEM PREVIEW
+========================================= */
+
+.preview-section {
+    background: var(--paper-soft);
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.preview-card {
+    background: #ffffff;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(20, 30, 28, 0.08);
+}
+
+.preview-large {
+    grid-column: span 2;
+}
+
+.preview-image {
+    width: 100%;
+    background: #eef1ee;
+    overflow: hidden;
+}
+
+.preview-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.preview-card:hover .preview-image img {
+    transform: scale(1.015);
+}
+
+.preview-caption {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 20px;
+    border-top: 1px solid var(--line);
+}
+
+.preview-caption span {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+}
+
+.preview-caption strong {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--text);
+}
+
+@media (max-width: 700px) {
+
+    .preview-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .preview-large {
+        grid-column: span 1;
+    }
+
+    .preview-caption {
+        padding: 14px 16px;
+    }
+}
+/* =========================================
+   LUMACARE PREVIEW SLIDER
+========================================= */
+
+.preview-section {
+    background: var(--paper-soft);
+}
+
+.preview-slider {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.preview-stage {
+    position: relative;
+    width: 100%;
+    background: #dfe5e1;
+    border: 1px solid var(--line);
+    overflow: hidden;
+}
+
+.preview-stage img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 620px;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.preview-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 20px;
+
+    background: linear-gradient(
+        to top,
+        rgba(23, 23, 20, 0.88),
+        rgba(23, 23, 20, 0)
+    );
+
+    color: #ffffff;
+}
+
+.preview-overlay span {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.preview-overlay strong {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.preview-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 18px;
+}
+
+.preview-controls button {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--line);
+    background: #ffffff;
+
+    font-size: 16px;
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.preview-controls button:hover {
+    background: var(--dark);
+    border-color: var(--dark);
+    color: #ffffff;
+}
+
+.preview-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.preview-dots .preview-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+
+    border: none;
+    background: #c5cbc7;
+}
+
+.preview-dots .preview-dot.active {
+    background: var(--accent);
+}
+
+@media (max-width: 700px) {
+
+    .preview-overlay {
+        padding: 14px;
+    }
+
+    .preview-controls {
+        padding-top: 14px;
+    }
+
+    .preview-controls button {
+        width: 38px;
+        height: 38px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="case-header">
+
+        <a href="../index.html" class="brand">
+            CRISTY.
+        </a>
+
+        <a href="../index.html#work" class="back-link">
+            ← Back to Selected Work
+        </a>
+
+    </header>
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <main>
+
+        <section class="case-hero">
+
+            <div class="case-hero-inner">
+
+                <div class="case-meta">
+                    <span>01 — SELECTED PROJECT</span>
+                    <span>HOME SERVICES · MANAGEMENT SYSTEM</span>
+                </div>
+
+                <h1>
+                    Luma<em>Care</em>
+                </h1>
+
+                <div class="case-intro">
+
+                    <p>
+                        A responsive home services management system
+                        designed to bring bookings, customers, leads,
+                        services and day-to-day operations into one
+                        organized digital workflow.
+                    </p>
+
+                    <div class="case-actions">
+
+                        <a
+                            href="https://jasminecristy005-droid.github.io/lumacare-home-services/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="live-button"
+                        >
+                            VIEW LIVE PROJECT
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             OVERVIEW
+        ========================================== -->
+
+        <section class="case-section overview-section">
+
+            <div class="case-section-inner">
+
+                <div class="section-label">
+                    <span>01</span>
+                    PROJECT OVERVIEW
+                </div>
+
+                <div class="overview-grid">
+
+                    <div class="overview-copy">
+
+                        <h2 class="section-heading">
+                            One system for the
+                            <em>daily workflow.</em>
+                        </h2>
+
+                        <p>
+                            LumaCare was built as a practical business
+                            management system for a home services company,
+                            rather than as a simple landing page.
+                        </p>
+
+                        <p>
+                            The system connects the customer-facing
+                            experience with internal administrative
+                            workflows, making it easier to manage
+                            bookings, customers, services and leads.
+                        </p>
+
+                    </div>
+
+                    <div class="project-facts">
+
+                        <div class="fact">
+                            <span>Project</span>
+                            <span>LumaCare Home Services</span>
+                        </div>
+
+                        <div class="fact">
+                            <span>Type</span>
+                            <span>Business Management System</span>
+                        </div>
+
+                        <div class="fact">
+                            <span>Focus</span>
+                            <span>Bookings · Customers · Operations</span>
+                        </div>
+
+                        <div class="fact">
+                            <span>Frontend</span>
+                            <span>HTML · CSS · JavaScript</span>
+                        </div>
+
+                        <div class="fact">
+                            <span>Backend</span>
+                            <span>Supabase · PostgreSQL</span>
+                        </div>
+
+                        <div class="fact">
+                            <span>Deployment</span>
+                            <span>GitHub Pages</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+<!-- =========================================
+     SYSTEM PREVIEW
+========================================== -->
+
+<section class="case-section preview-section">
+
+    <div class="case-section-inner">
+
+        <div class="section-label">
+            <span>02</span>
+            SYSTEM PREVIEW
+        </div>
+
+        <h2 class="section-heading">
+            A closer look at the
+            <em>working system.</em>
+        </h2>
+
+        <div class="preview-slider">
+
+            <div class="preview-stage">
+
+                <img
+                    id="lumacarePreview"
+                    src="../assets/lumacare/dashboard.png"
+                    alt="LumaCare system preview"
+                >
+
+                <div class="preview-overlay">
+
+                    <span id="previewNumber">01 / 04</span>
+
+                    <strong id="previewTitle">
+                        ADMIN DASHBOARD
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <div class="preview-controls">
+
+                <button
+                    type="button"
+                    id="previewPrev"
+                    aria-label="Previous preview"
+                >
+                    ←
+                </button>
+
+                <div class="preview-dots">
+
+                    <button
+                        type="button"
+                        class="preview-dot active"
+                        data-index="0"
+                        aria-label="Preview 1"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="preview-dot"
+                        data-index="1"
+                        aria-label="Preview 2"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="preview-dot"
+                        data-index="2"
+                        aria-label="Preview 3"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="preview-dot"
+                        data-index="3"
+                        aria-label="Preview 4"
+                    ></button>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="previewNext"
+                    aria-label="Next preview"
+                >
+                    →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+        <!-- =========================================
+             WHAT I BUILT
+        ========================================== -->
+
+        <section class="case-section build-section">
+
+            <div class="case-section-inner">
+
+                <div class="section-label">
+                    <span>02</span>
+                    WHAT I BUILT
+                </div>
+
+                <h2 class="section-heading">
+                    The system covers the
+                    <em>core business workflow.</em>
+                </h2>
+
+                <div class="feature-grid">
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">01</span>
+
+                        <h3>Booking Management</h3>
+
+                        <p>
+                            A customer booking flow connected to
+                            the internal booking management process.
+                        </p>
+
+                    </article>
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">02</span>
+
+                        <h3>Customer Management</h3>
+
+                        <p>
+                            Customer information and booking-related
+                            details organized through dedicated
+                            customer views.
+                        </p>
+
+                    </article>
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">03</span>
+
+                        <h3>Lead Management</h3>
+
+                        <p>
+                            Lead records and lead details supported
+                            through a dedicated administrative workflow.
+                        </p>
+
+                    </article>
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">04</span>
+
+                        <h3>Service Management</h3>
+
+                        <p>
+                            Services can be managed separately so the
+                            business can maintain its available offerings.
+                        </p>
+
+                    </article>
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">05</span>
+
+                        <h3>Admin Dashboard</h3>
+
+                        <p>
+                            A central administrative area for monitoring
+                            bookings, customers, leads and business activity.
+                        </p>
+
+                    </article>
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">06</span>
+
+                        <h3>Customer Area</h3>
+
+                        <p>
+                            A separate customer-facing area keeps customer
+                            access distinct from internal administration.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SYSTEM FLOW
+        ========================================== -->
+
+        <section class="case-section flow-section">
+
+            <div class="case-section-inner">
+
+                <div class="section-label">
+                    <span>03</span>
+                    SYSTEM FLOW
+                </div>
+
+                <h2 class="section-heading">
+                    From customer request to
+                    <em>business action.</em>
+                </h2>
+
+                <div class="flow-grid">
+
+                    <article class="flow-step">
+
+                        <span class="flow-step-number">01</span>
+
+                        <h3>Customer</h3>
+
+                        <p>
+                            Customer enters the service and booking
+                            experience through the public-facing system.
+                        </p>
+
+                    </article>
+
+                    <article class="flow-step">
+
+                        <span class="flow-step-number">02</span>
+
+                        <h3>Booking</h3>
+
+                        <p>
+                            Booking information is captured and stored
+                            for the business to manage.
+                        </p>
+
+                    </article>
+
+                    <article class="flow-step">
+
+                        <span class="flow-step-number">03</span>
+
+                        <h3>Admin</h3>
+
+                        <p>
+                            Internal users can review and manage
+                            operational records through the dashboard.
+                        </p>
+
+                    </article>
+
+                    <article class="flow-step">
+
+                        <span class="flow-step-number">04</span>
+
+                        <h3>Operations</h3>
+
+                        <p>
+                            The system keeps customer, service and
+                            booking information organized for follow-up.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             TOOLS
+        ========================================== -->
+
+        <section class="case-section tools-section">
+
+            <div class="case-section-inner">
+
+                <div class="section-label">
+                    <span>04</span>
+                    TOOLS & TECHNOLOGY
+                </div>
+
+                <h2 class="section-heading">
+                    Built with practical
+                    <em>web technologies.</em>
+                </h2>
+
+                <div class="tools-list">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JAVASCRIPT</span>
+                    <span>SUPABASE</span>
+                    <span>POSTGRESQL</span>
+                    <span>AUTHENTICATION</span>
+                    <span>GITHUB</span>
+                    <span>GITHUB PAGES</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             FINAL CTA
+        ========================================== -->
+
+        <section class="case-cta">
+
+            <div class="case-cta-inner">
+
+                <div class="section-label">
+                    <span>05</span>
+                    EXPLORE THE SYSTEM
+                </div>
+
+                <h2>
+                    See the actual
+                    <em>LumaCare system.</em>
+                </h2>
+
+                <div class="cta-links">
+
+                    <a
+                        href="https://jasminecristy005-droid.github.io/lumacare-home-services/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="cta-primary"
+                    >
+                        VIEW LIVE PROJECT
+                        <span>↗</span>
+                    </a>
+
+                    <a
+                        href="../index.html#work"
+                        class="cta-secondary"
+                    >
+                        ← BACK TO SELECTED WORK
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="case-footer">
+
+        <span>LUMACARE · CASE STUDY</span>
+
+        <span>CRISTY DEVELLERES · 2026</span>
+
+    </footer>
+<script>
+
+    const previewImages = [
+        "../assets/lumacare/dashboard.png",
+        "../assets/lumacare/bookings.png",
+        "../assets/lumacare/customer.png",
+        "../assets/lumacare/leads.png"
+    ];
+
+    const previewTitles = [
+        "ADMIN DASHBOARD",
+        "BOOKING MANAGEMENT",
+        "CUSTOMER DASHBOARD",
+        "LEAD MANAGEMENT"
+    ];
+
+    let currentPreview = 0;
+
+    const previewImage =
+        document.getElementById("lumacarePreview");
+
+    const previewNumber =
+        document.getElementById("previewNumber");
+
+    const previewTitle =
+        document.getElementById("previewTitle");
+
+    const previewDots =
+        document.querySelectorAll(".preview-dot");
+
+    function showPreview(index) {
+
+        currentPreview = index;
+
+        previewImage.style.opacity = "0";
+
+        setTimeout(() => {
+
+            previewImage.src = previewImages[currentPreview];
+
+            previewTitle.textContent =
+                previewTitles[currentPreview];
+
+            previewNumber.textContent =
+                `0${currentPreview + 1} / 04`;
+
+            previewDots.forEach((dot, i) => {
+                dot.classList.toggle(
+                    "active",
+                    i === currentPreview
+                );
+            });
+
+            previewImage.style.opacity = "1";
+
+        }, 180);
+    }
+
+    document
+        .getElementById("previewNext")
+        .addEventListener("click", () => {
+
+            const next =
+                (currentPreview + 1) %
+                previewImages.length;
+
+            showPreview(next);
+        });
+
+    document
+        .getElementById("previewPrev")
+        .addEventListener("click", () => {
+
+            const previous =
+                (currentPreview - 1 +
+                previewImages.length) %
+                previewImages.length;
+
+            showPreview(previous);
+        });
+
+    previewDots.forEach((dot) => {
+
+        dot.addEventListener("click", () => {
+
+            showPreview(
+                Number(dot.dataset.index)
+            );
+
+        });
+
+    });
+
+</script>
+</body>
+
+</html>

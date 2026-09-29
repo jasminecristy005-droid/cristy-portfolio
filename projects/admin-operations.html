@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Administrative & Business Operations | Cristy Develleres
+    </title>
+
+    <style>
+
+        :root {
+            --paper: #f3f0e9;
+            --paper-soft: #e8ece8;
+            --dark: #171714;
+            --text: #202421;
+            --muted: #6d7470;
+            --text-soft: #555c58;
+            --line: #d6dad5;
+            --accent: #0f766e;
+            --white: #ffffff;
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            background: var(--paper);
+            color: var(--text);
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .case-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 28px 5vw;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+
+        .brand {
+            color: var(--dark);
+
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+
+            text-decoration: none;
+        }
+
+
+        .back-link {
+            color: var(--muted);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            text-decoration: none;
+
+            transition: color 0.25s ease;
+        }
+
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            padding: 110px 5vw 120px;
+
+            background: var(--dark);
+            color: var(--white);
+        }
+
+
+        .hero-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+
+        .hero-meta {
+            margin-bottom: 28px;
+
+            color: #929791;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+
+        .hero-kicker {
+            margin-bottom: 24px;
+
+            color: #7fb8b1;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+
+        .hero h1 {
+            max-width: 1100px;
+
+            font-size: clamp(58px, 9vw, 140px);
+            line-height: 0.88;
+
+            letter-spacing: -0.07em;
+            font-weight: 800;
+
+            text-transform: uppercase;
+        }
+
+
+        .hero-description {
+            max-width: 700px;
+
+            margin-top: 42px;
+
+            color: #c2c7c2;
+
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           OVERVIEW
+        ===================================================== */
+
+        .overview {
+            padding: 110px 5vw;
+        }
+
+
+        .overview-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+
+        .section-label {
+            margin-bottom: 55px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+
+        .overview-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.4fr)
+                minmax(280px, 0.6fr);
+
+            gap: 90px;
+        }
+
+
+        .overview h2 {
+            max-width: 850px;
+
+            font-size: clamp(42px, 6vw, 78px);
+            line-height: 0.98;
+
+            letter-spacing: -0.055em;
+        }
+
+
+        .overview-copy {
+            margin-top: 30px;
+
+            max-width: 750px;
+
+            color: var(--text-soft);
+
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+
+        .facts {
+            border-top: 1px solid var(--line);
+        }
+
+
+        .fact {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+
+            padding: 17px 0;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+
+        .fact span:first-child {
+            color: var(--muted);
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+
+        .fact span:last-child {
+            color: var(--text);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            text-align: right;
+        }
+
+
+        /* =====================================================
+           EXPERIENCE AREAS
+        ===================================================== */
+
+        .experience-section {
+            padding: 100px 5vw;
+
+            background: var(--paper-soft);
+        }
+
+
+        .experience-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+
+        .experience-heading {
+            max-width: 850px;
+
+            margin-bottom: 55px;
+
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 0.98;
+
+            letter-spacing: -0.055em;
+        }
+
+
+        .experience-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 1px;
+
+            background: var(--line);
+
+            border: 1px solid var(--line);
+        }
+
+
+        .experience-card {
+            min-height: 230px;
+
+            padding: 32px;
+
+            background: var(--paper);
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+
+        .experience-card:hover {
+            background: var(--white);
+
+            transform: translateY(-3px);
+        }
+
+
+        .experience-number {
+            margin-bottom: 55px;
+
+            color: var(--accent);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 0.1em;
+        }
+
+
+        .experience-card h3 {
+            margin-bottom: 12px;
+
+            font-size: 20px;
+            line-height: 1.1;
+
+            letter-spacing: -0.025em;
+        }
+
+
+        .experience-card p {
+            max-width: 320px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+
+        /* =====================================================
+           HOW I WORK
+        ===================================================== */
+
+        .workflow {
+            padding: 105px 5vw;
+
+            background: var(--dark);
+            color: var(--white);
+        }
+
+
+        .workflow-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+
+        .workflow-heading {
+            max-width: 800px;
+
+            margin-bottom: 60px;
+
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 0.98;
+
+            letter-spacing: -0.055em;
+        }
+
+
+        .workflow-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            border-top: 1px solid #353632;
+        }
+
+
+        .workflow-step {
+            padding: 30px 24px 20px 0;
+
+            border-right: 1px solid #353632;
+        }
+
+
+        .workflow-step:not(:first-child) {
+            padding-left: 24px;
+        }
+
+
+        .workflow-step:last-child {
+            border-right: none;
+        }
+
+
+        .workflow-number {
+            margin-bottom: 45px;
+
+            color: #7fb8b1;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+        }
+
+
+        .workflow-step h3 {
+            margin-bottom: 12px;
+
+            font-size: 19px;
+        }
+
+
+        .workflow-step p {
+            color: #aeb3ae;
+
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+
+        /* =====================================================
+           TOOLS
+        ===================================================== */
+
+        .tools-section {
+            padding: 100px 5vw;
+        }
+
+
+        .tools-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+
+        .tools-heading {
+            margin-bottom: 45px;
+
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 0.98;
+
+            letter-spacing: -0.055em;
+        }
+
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+
+        .tools-list span {
+            padding: 10px 14px;
+
+            border: 1px solid var(--line);
+
+            color: var(--text-soft);
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta-section {
+            padding: 100px 5vw;
+
+            background: var(--accent);
+            color: var(--white);
+        }
+
+
+        .cta-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+
+        .cta-label {
+            margin-bottom: 35px;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 0.14em;
+        }
+
+
+        .cta-heading {
+            max-width: 1000px;
+
+            font-size: clamp(48px, 7vw, 92px);
+            line-height: 0.92;
+
+            letter-spacing: -0.06em;
+        }
+
+
+        .cta-buttons {
+            display: flex;
+            gap: 12px;
+
+            margin-top: 45px;
+        }
+
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+
+            min-width: 190px;
+            height: 52px;
+
+            padding: 0 20px;
+
+            border: 1px solid transparent;
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 0.12em;
+            text-decoration: none;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+
+        .button span {
+            font-size: 15px;
+        }
+
+
+        .button-primary {
+            background: var(--dark);
+            color: var(--white);
+            border-color: var(--dark);
+        }
+
+
+        .button-primary:hover {
+            background: var(--white);
+            color: var(--dark);
+            border-color: var(--white);
+
+            transform: translateY(-2px);
+        }
+
+
+        .button-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255,255,255,0.55);
+        }
+
+
+        .button-secondary:hover {
+            background: var(--white);
+            color: var(--dark);
+            border-color: var(--white);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .case-footer {
+            padding: 28px 5vw;
+
+            background: #101312;
+            color: #888;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+
+        .case-footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 55px;
+            }
+
+
+            .experience-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .workflow-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .workflow-step:nth-child(2) {
+                border-right: none;
+            }
+
+
+            .workflow-step:nth-child(3),
+            .workflow-step:nth-child(4) {
+                border-top: 1px solid #353632;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .case-header {
+                padding: 22px 5vw;
+            }
+
+
+            .hero {
+                padding: 80px 5vw 90px;
+            }
+
+
+            .overview,
+            .experience-section,
+            .workflow,
+            .tools-section,
+            .cta-section {
+                padding: 75px 5vw;
+            }
+
+
+            .experience-grid,
+            .workflow-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .workflow-step,
+            .workflow-step:not(:first-child) {
+                padding: 25px 0;
+                border-right: none;
+                border-bottom: 1px solid #353632;
+            }
+
+
+            .workflow-step:last-child {
+                border-bottom: none;
+            }
+
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+
+            .button {
+                width: 100%;
+            }
+
+
+            .case-footer-inner {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="case-header">
+
+        <a
+            href="../projects.html"
+            class="brand"
+        >
+            CRISTY.
+        </a>
+
+
+        <a
+            href="../projects.html"
+            class="back-link"
+        >
+            ← Back to Projects
+        </a>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-inner">
+
+            <div class="hero-meta">
+                01 — SELECTED PROJECT
+            </div>
+
+
+            <div class="hero-kicker">
+                ADMINISTRATIVE · BUSINESS OPERATIONS
+            </div>
+
+
+            <h1>
+                ADMINISTRATIVE<br>
+                &amp; BUSINESS<br>
+                OPERATIONS
+            </h1>
+
+
+            <p class="hero-description">
+                10+ years of hands-on experience supporting
+                daily business operations, customer coordination,
+                documentation, records, follow-ups, and
+                administrative workflows.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         OVERVIEW
+    ====================================================== -->
+
+    <section class="overview">
+
+        <div class="overview-inner">
+
+            <div class="section-label">
+                01 — EXPERIENCE OVERVIEW
+            </div>
+
+
+            <div class="overview-grid">
+
+                <div>
+
+                    <h2>
+                        Keeping the
+                        business moving
+                        behind the scenes.
+                    </h2>
+
+
+                    <p class="overview-copy">
+                        My administrative experience is built around
+                        keeping day-to-day business operations organized,
+                        accurate, and moving forward. This includes
+                        coordinating customers, maintaining records,
+                        preparing documentation, following up on
+                        operational tasks, and supporting internal
+                        workflows.
+                    </p>
+
+
+                    <p class="overview-copy">
+                        Over the years, this hands-on experience became
+                        the foundation for my work in digital operations,
+                        e-commerce, sales support, data management,
+                        and business systems.
+                    </p>
+
+                </div>
+
+
+                <div class="facts">
+
+                    <div class="fact">
+                        <span>Experience</span>
+                        <span>10+ Years</span>
+                    </div>
+
+
+                    <div class="fact">
+                        <span>Focus</span>
+                        <span>Business Operations</span>
+                    </div>
+
+
+                    <div class="fact">
+                        <span>Work Style</span>
+                        <span>Detail-Oriented</span>
+                    </div>
+
+
+                    <div class="fact">
+                        <span>Environment</span>
+                        <span>Remote Ready</span>
+                    </div>
+
+
+                    <div class="fact">
+                        <span>Support</span>
+                        <span>End-to-End</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXPERIENCE AREAS
+    ====================================================== -->
+
+    <section class="experience-section">
+
+        <div class="experience-inner">
+
+            <div class="section-label">
+                02 — WHAT I HANDLE
+            </div>
+
+
+            <h2 class="experience-heading">
+                Practical support
+                across everyday
+                business operations.
+            </h2>
+
+
+            <div class="experience-grid">
+
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Administrative Support
+                    </h3>
+
+                    <p>
+                        Documentation, records, files,
+                        correspondence, data entry, and
+                        day-to-day administrative tasks.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Customer Coordination
+                    </h3>
+
+                    <p>
+                        Customer communication, requests,
+                        follow-ups, coordination, and
+                        service-related support.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Data &amp; Records
+                    </h3>
+
+                    <p>
+                        Maintaining organized records,
+                        updating information, checking
+                        details, and keeping data accurate.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Daily Operations
+                    </h3>
+
+                    <p>
+                        Coordinating recurring tasks,
+                        schedules, priorities, and
+                        operational requirements.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        05
+                    </div>
+
+                    <h3>
+                        Documentation
+                    </h3>
+
+                    <p>
+                        Preparing, organizing, updating,
+                        and maintaining business
+                        documents and records.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        06
+                    </div>
+
+                    <h3>
+                        Workflow Support
+                    </h3>
+
+                    <p>
+                        Helping tasks move from request
+                        to completion through consistent
+                        follow-up and organization.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WORKFLOW
+    ====================================================== -->
+
+    <section class="workflow">
+
+        <div class="workflow-inner">
+
+            <div class="section-label">
+                03 — HOW I WORK
+            </div>
+
+
+            <h2 class="workflow-heading">
+                Organized work
+                from request
+                to completion.
+            </h2>
+
+
+            <div class="workflow-grid">
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Receive
+                    </h3>
+
+                    <p>
+                        Understand the request,
+                        priority, and information
+                        needed to move forward.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Organize
+                    </h3>
+
+                    <p>
+                        Sort information, documents,
+                        records, and tasks into a
+                        clear working structure.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Execute
+                    </h3>
+
+                    <p>
+                        Complete the required work
+                        accurately while keeping
+                        priorities in order.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Follow Up
+                    </h3>
+
+                    <p>
+                        Track pending items, communicate
+                        updates, and make sure tasks
+                        continue moving forward.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TOOLS
+    ====================================================== -->
+
+    <section class="tools-section">
+
+        <div class="tools-inner">
+
+            <div class="section-label">
+                04 — TOOLS &amp; WORK ENVIRONMENT
+            </div>
+
+
+            <h2 class="tools-heading">
+                Tools that support
+                organized operations.
+            </h2>
+
+
+            <div class="tools-list">
+
+                <span>Google Workspace</span>
+                <span>Microsoft Office</span>
+                <span>Google Sheets</span>
+                <span>Microsoft Excel</span>
+                <span>Gmail</span>
+                <span>Slack</span>
+                <span>Calendly</span>
+                <span>ClickUp</span>
+                <span>Notion</span>
+                <span>Data Management</span>
+                <span>Documentation</span>
+                <span>Customer Coordination</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="cta-section">
+
+        <div class="cta-inner">
+
+            <div class="cta-label">
+                05 — NEXT
+            </div>
+
+
+            <h2 class="cta-heading">
+                Need someone to
+                keep the work moving?
+            </h2>
+
+
+            <div class="cta-buttons">
+
+                <a
+                    href="../projects.html"
+                    class="button button-primary"
+                >
+                    Back to All Projects
+                    <span>↗</span>
+                </a>
+
+
+                <a
+                    href="https://calendly.com/jasminecristy005/30min"
+                    target="_blank"
+                    rel="noopener"
+                    class="button button-secondary"
+                >
+                    Schedule a Call
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="case-footer">
+
+        <div class="case-footer-inner">
+
+            <span>
+                CRISTY DEVELLERES
+            </span>
+
+            <span>
+                ADMINISTRATIVE &amp; DIGITAL OPERATIONS
+            </span>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
