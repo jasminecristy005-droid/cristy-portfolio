@@ -1655,7 +1655,31 @@ em {
     font-size: 8px;
     font-weight: 700;
 }
+.tool-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 
+    margin-top: 20px;
+}
+
+.tool-list span {
+    padding: 7px 10px;
+
+    background: var(--bg);
+    border: 1px solid var(--line);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.tool-list span:hover {
+    transform: translateY(-2px);
+    background: #ffffff;
+}
 
 /* =========================================================
    10. EXPERIENCE
